@@ -1,821 +1,674 @@
 {
- "kitsu:12:1040": {
+ "tt0804484:1:1": {
   "streams": [
    {
-    "name": "Nyaa.si\n S:8, P:10",
+    "name": "YGGtorrent\n S:4, P:4",
     "type": "series",
-    "infoHash": "0edf56a0d73aa4c763db0a7c27a97cbc880597a8",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:0edf56a0d73aa4c763db0a7c27a97cbc880597a8"
-    ],
-    "title": "[Erai-raws] One Piece - 1040 [720p][5D116785].mkv\n[Erai-raws] One Piece - 1040 [720p][5D116785].mkv\n 📺HD | 💾 710.00 MB",
+    "title": "Foundation S01 2160p WEBDL MULTi VFF EAC3-JOC DoVi HEVC-FoX\nS01E01 La paix de l'Empereur.mkv\n | 💾 12.00 GB",
+    "url": "https://84.download.real-debrid.com/d/IT3H36NWLJRNK/S01E01%20La%20paix%20de%20l%27Empereur.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|0edf56a0d73aa4c763db0a7c27a97cbc880597a8",
+     "bingeGroup": "Jackett|1aa1df97999d16e6594e39c5d4e6c8cf021d3cdc",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:3, P:5",
+    "name": "YGGtorrent\n S:49, P:51",
     "type": "series",
-    "infoHash": "14fab30f7e41d292ec894bbddaa5cc49e5388fa2",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:14fab30f7e41d292ec894bbddaa5cc49e5388fa2"
-    ],
-    "title": "[Valenciano] One Piece - 1040 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n[Valenciano] One Piece - 1040 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n 🎥FHD | 💾 337.00 MB",
+    "title": "Foundation.S01.MULTi.1080p.ATVP.WEB-DL.DDP5.1.H264-FCK\nFoundation.S01E01.MULTi.1080p.ATVP.WEB-DL.DDP5.1.H264-FCK.mkv\n 🎥FHD | 💾 5.00 GB",
+    "url": "https://84.download.real-debrid.com/d/KQ4W23WRCFZDK/Foundation.S01E01.MULTi.1080p.ATVP.WEB-DL.DDP5.1.H264-FCK.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|14fab30f7e41d292ec894bbddaa5cc49e5388fa2",
+     "bingeGroup": "Jackett|316f464fc85499663c546669ba93b1b7975e18b0",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:46, P:48",
+    "name": "YGGtorrent\n S:48, P:48",
     "type": "series",
-    "infoHash": "36896dd5b51345874c6023b18bc512c1ed7a3fb6",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:36896dd5b51345874c6023b18bc512c1ed7a3fb6"
-    ],
-    "title": "[SubsPlease] One Piece - 1040 (1080p) [EFEA06B5].mkv\n[SubsPlease] One Piece - 1040 (1080p) [EFEA06B5].mkv\n 🎥FHD | 💾 1389.00 MB",
+    "title": "Foundation.S01E01.The.Emperor's.Peace.1080p.10bit.WEBRip.6CH.x265.HEVC.mkv\nFoundation.S01E01.The.Emperor's.Peace.1080p.10bit.WEBRip.6CH.x265.HEVC.mkv\n 🎥FHD | 💾 732.00 MB",
+    "url": "https://21.download.real-debrid.com/d/VSUAGBIR6ZOU6/Foundation.S01E01.The.Emperor%27s.Peace.1080p.10bit.WEBRip.6CH.x265.HEVC.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|36896dd5b51345874c6023b18bc512c1ed7a3fb6",
+     "bingeGroup": "Jackett|9747e0ab6787fff7aaf54dc7cd48fa93598cd14f",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:9, P:13",
+    "name": "YGGtorrent\n S:23, P:23",
     "type": "series",
-    "infoHash": "9533f3fa206ac95a579ac9284c4cbf7c06cd39e9",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:9533f3fa206ac95a579ac9284c4cbf7c06cd39e9"
-    ],
-    "title": "[Anime Land] One Piece 1040 (WEBRip 1080p Hi10P AAC) RAW [33B7CC58].mp4\n[Anime Land] One Piece 1040 (WEBRip 1080p Hi10P AAC) RAW [33B7CC58].mp4\n 🎥FHD | 💾 1086.00 MB",
+    "title": "Season 01\nFoundation (2021) - S01E01 - The Emperor’s Peace [WEBDL-2160p][DV HDR10][EAC3 Atmos 5.1][FR+EN][x265]-FRESH.mkv\n 🌟4k | 💾 12.00 GB",
+    "url": "https://21.download.real-debrid.com/d/WXN66RZ5SXVXG/Foundation%20%282021%29%20-%20S01E01%20-%20The%20Emperor%E2%80%99s%20Peace%20%5BWEBDL-2160p%5D%5BDV%20HDR10%5D%5BEAC3%20Atmos%205.1%5D%5BFR%2BEN%5D%5Bx265%5D-FRESH.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|9533f3fa206ac95a579ac9284c4cbf7c06cd39e9",
+     "bingeGroup": "Jackett|998ce1bf755abce892081faa0906125dd3cebed1",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:24, P:26",
+    "name": "YGGtorrent\n S:40, P:40",
     "type": "series",
-    "infoHash": "9e713ab9e8e02596df7883d24990ba233ea38d0f",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:9e713ab9e8e02596df7883d24990ba233ea38d0f"
-    ],
-    "title": "[Erai-raws] One Piece - 1040 [1080p][89E66AE3].mkv\n[Erai-raws] One Piece - 1040 [1080p][89E66AE3].mkv\n 🎥FHD | 💾 1390.00 MB",
+    "title": "Foundation.S01.FRENCH.720p.WEBRip.x264.AC3-MULTiViSiON\nFoundation.S01E01.FRENCH.720p.WEBRip.x264.AC3-MULTiViSiON.mkv\n 📺HD | 💾 1033.00 MB",
+    "url": "https://84.download.real-debrid.com/d/GRW762PHGCKMM/Foundation.S01E01.FRENCH.720p.WEBRip.x264.AC3-MULTiViSiON.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|9e713ab9e8e02596df7883d24990ba233ea38d0f",
+     "bingeGroup": "Jackett|b24d8523228f9275461fdfa4d447be4fc11cde49",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:7, P:10",
+    "name": "YGGtorrent\n S:14, P:14",
     "type": "series",
-    "infoHash": "f9125790ee41394e386e001e2359ee62b0409ee7",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:f9125790ee41394e386e001e2359ee62b0409ee7"
-    ],
-    "title": "[Tsundere-Raws] One Piece - 1040 VOSTFR (CR) [WEB 1080p x264 AAC].mkv\n[Tsundere-Raws] One Piece - 1040 VOSTFR (CR) [WEB 1080p x264 AAC].mkv\n 🎥FHD | 💾 1406.00 MB",
+    "title": "Foundation.S01E01.MULTi.2160p.WEBRiP.x265-KAF.mkv\nFoundation.S01E01.MULTi.2160p.WEBRiP.x265-KAF.mkv\n 🌟4k | 💾 4.00 GB",
+    "url": "https://84.download.real-debrid.com/d/IQ6GD2WOSEJPE/Foundation.S01E01.MULTi.2160p.WEBRiP.x265-KAF.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|f9125790ee41394e386e001e2359ee62b0409ee7",
+     "bingeGroup": "Jackett|b303082a2f1fbdb8f575b26767b7de4d1f615262",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:14, P:17",
+    "name": "YGGtorrent\n S:43, P:46",
     "type": "series",
-    "infoHash": "2e1a57f795310f5eee4ae9adaa7b13c37eb91910",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:2e1a57f795310f5eee4ae9adaa7b13c37eb91910"
-    ],
-    "title": "[SubsPlease] One Piece - 1040 (720p) [D6BCD012].mkv\n[SubsPlease] One Piece - 1040 (720p) [D6BCD012].mkv\n 📺HD | 💾 709.00 MB",
+    "title": "Foundation.S01.WEBRip.x264-NoTag\nFoundation.S01E01.WEBRip.x264-NoTag.mkv\n | 💾 666.00 MB",
+    "url": "https://21.download.real-debrid.com/d/M5T4WGLPQOBL2/Foundation.S01E01.WEBRip.x264-NoTag.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|2e1a57f795310f5eee4ae9adaa7b13c37eb91910",
+     "bingeGroup": "Jackett|bbf293236f8f0e281b2ad8fc9d4a599235a14561",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:4, P:6",
+    "name": "YGGtorrent\n S:76, P:76",
     "type": "series",
-    "infoHash": "78181d7ee44d7118a1f6d5e1d059770bd6612914",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:78181d7ee44d7118a1f6d5e1d059770bd6612914"
-    ],
-    "title": "[CameEsp] One Piece - 1040 [1080p][ESP-LAT-ENG][mkv].mkv\n[CameEsp] One Piece - 1040 [1080p][ESP-LAT-ENG][mkv].mkv\n 🎥FHD | 💾 1389.00 MB",
+    "title": "Foundation - S01E01 - The Emperors Peace [MULTI][WEB-Rip][1080p][H265_10b][HE-AAC_5.1] - K-LITY.mkv\nFoundation - S01E01 - The Emperors Peace [MULTI][WEB-Rip][1080p][H265_10b][HE-AAC_5.1] - K-LITY.mkv\n 🎥FHD | 💾 1781.00 MB",
+    "url": "https://21.download.real-debrid.com/d/FJGG6RRSKUNTS/Foundation%20-%20S01E01%20-%20The%20Emperors%20Peace%20%5BMULTI%5D%5BWEB-Rip%5D%5B1080p%5D%5BH265_10b%5D%5BHE-AAC_5.1%5D%20-%20K-LITY.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|78181d7ee44d7118a1f6d5e1d059770bd6612914",
+     "bingeGroup": "Jackett|450267199d086115e5aacc660f4e0b6edfe10c1f",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:45, P:46",
+    "type": "series",
+    "title": "Foundation.S01.VOSTFR.1080p.10bit.WEBRip.6CH.x265.HEVC\nFoundation.S01E01.The.Emperor's.Peace.1080p.10bit.WEBRip.6CH.x265.HEVC.mkv\n 🎥FHD | 💾 732.00 MB",
+    "url": "https://21.download.real-debrid.com/d/2E3LONO66YJGW/Foundation.S01E01.The.Emperor%27s.Peace.1080p.10bit.WEBRip.6CH.x265.HEVC.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|3220580a4cfd2ac943fe3209d451cb7ef184cdc7",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:31, P:31",
+    "type": "series",
+    "title": "Foundation.S01E01.FRENCH.720p.ATVP.WEB-DL.DDP5.1.H264-FCK\nFoundation.S01E01.FRENCH.720p.ATVP.WEB-DL.DDP5.1.H264-FCK.mkv\n 📺HD | 💾 1802.00 MB",
+    "url": "https://21.download.real-debrid.com/d/WMWBVK7IGTOH2/Foundation.S01E01.FRENCH.720p.ATVP.WEB-DL.DDP5.1.H264-FCK.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|954a160f1790b2c8ca33cc1199ef1ee607fe2c72",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:88, P:88",
+    "type": "series",
+    "title": "Foundation.S01.MULTi.1080p.WEBRip.x264.AC3-MULTiViSiON\nFoundation.S01E01.MULTi.1080p.WEBRip.x264.AC3-MULTiViSiON.mkv\n 🎥FHD | 💾 1619.00 MB",
+    "url": "https://84.download.real-debrid.com/d/7Q67OLJPUIWNY/Foundation.S01E01.MULTi.1080p.WEBRip.x264.AC3-MULTiViSiON.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|367f3ac2584e65d9d3b74e5d7f616fd5535907e3",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:69, P:69",
+    "type": "series",
+    "title": "Foundation.S01.MULTi.2160p.10bit.WEBRiP.x265.HEVC.DV.DDP5.1.Atmos.AvALoN\nFoundation.S01E01.2160p.MULTi.WEB-DL.AvALoN.mkv\n 🌟4k | 💾 2.00 GB",
+    "url": "https://21.download.real-debrid.com/d/MKMDRLX3QLAA2/Foundation.S01E01.2160p.MULTi.WEB-DL.AvALoN.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|b4e005c708fcab3fb5c2b23af466a4ecf308dba6",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:607, P:622",
+    "type": "series",
+    "title": "Foundation.S01.MULTi.1080p.10bit.WEBRiP.x265.HEVC.AvALoN\nFoundation.S01E01.1080p.MULTi.WEB-DL.AvALoN.mkv\n 🎥FHD | 💾 1630.00 MB",
+    "url": "https://84.download.real-debrid.com/d/NJ7AI3CEUBCII/Foundation.S01E01.1080p.MULTi.WEB-DL.AvALoN.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|45494f71f0aabad0e6405a82fa0276a2030c41db",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:38, P:38",
+    "type": "series",
+    "title": "Foundation.S01.MULTi.2160p.WEBRiP.x265-KAF.mkv\nFoundation.S01E01.MULTi.2160p.WEBRiP.x265-KAF.mkv\n 🌟4k | 💾 4.00 GB",
+    "url": "https://21.download.real-debrid.com/d/IXTTKEMULDYOM/Foundation.S01E01.MULTi.2160p.WEBRiP.x265-KAF.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|8da2997c4ccab28c788d06fdac3af22d56b10c00",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:194, P:195",
+    "type": "series",
+    "title": "Foundation S01 MULTi VFF 2160p 10bit Dolby Vision WEBRip EAC3 Atmos 5.1 x265-BONBON\nFoundation.S01E01.MULTI.2160p.4KLight.DOLBY.VISION.HDR10.WebRip.x265.E-AC3.Atmos-BONBON.mkv\n 🌟4k | 💾 2.00 GB",
+    "url": "https://84.download.real-debrid.com/d/CSCFOKJDM6UC4/Foundation.S01E01.MULTI.2160p.4KLight.DOLBY.VISION.HDR10.WebRip.x265.E-AC3.Atmos-BONBON.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|1d6a61c979dbdd1ad88597cca09d738c123e19fb",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:8, P:8",
+    "type": "series",
+    "title": "Linux Foundation Certified System Administrator (LFCS)\n001 - Linux Foundation Certified System Administrator Introduction.mp4\n | 💾 86.00 MB",
+    "url": "https://21.download.real-debrid.com/d/BCP2KC3WYVIBW/001%20-%20Linux%20Foundation%20Certified%20System%20Administrator%20Introduction.mp4",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|49cf42f8d0d2dbe88dfa238723bb4ccef1d01d2a",
      "notWebReady": true
     }
    }
   ]
  },
- "kitsu:12:1041": {
+ "tt0804484:1:4": {
   "streams": [
    {
-    "name": "Nyaa.si\n S:18, P:20",
+    "name": "YGGtorrent\n S:607, P:622",
     "type": "series",
-    "infoHash": "9cb9980e9dd7cfca0bb221a6f75af8c67cbf7f2f",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:9cb9980e9dd7cfca0bb221a6f75af8c67cbf7f2f"
-    ],
-    "title": "[Erai-raws] One Piece - 1041 [1080p][Multiple Subtitle][96208791].mkv\n[Erai-raws] One Piece - 1041 [1080p][Multiple Subtitle][96208791].mkv\n 🎥FHD | 💾 1390.00 MB",
+    "title": "Foundation.S01.MULTi.1080p.10bit.WEBRiP.x265.HEVC.AvALoN\nFoundation.S01E04.1080p.MULTi.WEB-DL.AvALoN.mkv\n 🎥FHD | 💾 1063.00 MB",
     "behaviorHints": {
-     "bingeGroup": "Jackett|9cb9980e9dd7cfca0bb221a6f75af8c67cbf7f2f",
+     "bingeGroup": "Jackett|45494f71f0aabad0e6405a82fa0276a2030c41db",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:10, P:12",
+    "name": "YGGtorrent\n S:194, P:195",
     "type": "series",
-    "infoHash": "48804e360431ca32c3f7b3f881574269c4582768",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:48804e360431ca32c3f7b3f881574269c4582768"
-    ],
-    "title": "[SubsPlease] One Piece - 1041 (720p) [AE6362ED].mkv\n[SubsPlease] One Piece - 1041 (720p) [AE6362ED].mkv\n 📺HD | 💾 708.00 MB",
+    "title": "Foundation S01 MULTi VFF 2160p 10bit Dolby Vision WEBRip EAC3 Atmos 5.1 x265-BONBON\nFoundation.S01E04.MULTI.2160p.4KLight.DOLBY.VISION.HDR10.WebRip.x265.E-AC3.Atmos-BONBON.mkv\n 🌟4k | 💾 1501.00 MB",
+    "url": "https://88.download.real-debrid.com/d/UWTD243VAM6KK/Foundation.S01E04.MULTI.2160p.4KLight.DOLBY.VISION.HDR10.WebRip.x265.E-AC3.Atmos-BONBON.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|48804e360431ca32c3f7b3f881574269c4582768",
-     "notWebReady": true
-    }
-   },
-   {
-    "name": "Nyaa.si\n S:8, P:9",
-    "type": "series",
-    "infoHash": "f80210faa3f140401a4a49634973a71e24992b5d",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:f80210faa3f140401a4a49634973a71e24992b5d"
-    ],
-    "title": "[Erai-raws] One Piece - 1041 [720p][Multiple Subtitle][FBADE6A2].mkv\n[Erai-raws] One Piece - 1041 [720p][Multiple Subtitle][FBADE6A2].mkv\n 📺HD | 💾 709.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|f80210faa3f140401a4a49634973a71e24992b5d",
-     "notWebReady": true
-    }
-   },
-   {
-    "name": "Nyaa.si\n S:15, P:17",
-    "type": "series",
-    "infoHash": "36a3a7e1f25b81096c6baba6d0c11df82758ab30",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:36a3a7e1f25b81096c6baba6d0c11df82758ab30"
-    ],
-    "title": "[Judas] One Piece - 1041.mkv\n[Judas] One Piece - 1041.mkv\n | 💾 387.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|36a3a7e1f25b81096c6baba6d0c11df82758ab30",
-     "notWebReady": true
-    }
-   },
-   {
-    "name": "Nyaa.si\n S:10, P:12",
-    "type": "series",
-    "infoHash": "683647ebd161d31287b87d47488b5c71ed16d64f",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:683647ebd161d31287b87d47488b5c71ed16d64f"
-    ],
-    "title": "[Anime Land] One Piece 1041 (WEBRip 1080p Hi10P AAC) RAW [8D560EE6].mp4\n[Anime Land] One Piece 1041 (WEBRip 1080p Hi10P AAC) RAW [8D560EE6].mp4\n 🎥FHD | 💾 1055.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|683647ebd161d31287b87d47488b5c71ed16d64f",
-     "notWebReady": true
-    }
-   },
-   {
-    "name": "Nyaa.si\n S:7, P:9",
-    "type": "series",
-    "infoHash": "41475a01a2a881750d195559c072cd8d6378f22a",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:41475a01a2a881750d195559c072cd8d6378f22a"
-    ],
-    "title": "[SubsPlease] One Piece - 1041 (480p) [089CE042].mkv\n[SubsPlease] One Piece - 1041 (480p) [089CE042].mkv\n 📱SD | 💾 363.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|41475a01a2a881750d195559c072cd8d6378f22a",
+     "bingeGroup": "Jackett|1d6a61c979dbdd1ad88597cca09d738c123e19fb",
      "notWebReady": true
     }
    }
   ]
  },
- "kitsu:12:1042": {
+ "tt1160419": {
   "streams": [
    {
-    "name": "Nyaa.si\n S:9, P:10",
-    "type": "series",
-    "infoHash": "1d1493eae5bb7a25b22d048954f3362175a047e0",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:1d1493eae5bb7a25b22d048954f3362175a047e0"
-    ],
-    "title": "[Erai-raws] One Piece - 1042 [720p][Multiple Subtitle][C0CD4743].mkv\n[Erai-raws] One Piece - 1042 [720p][Multiple Subtitle][C0CD4743].mkv\n 📺HD | 💾 710.00 MB",
+    "name": "YGGtorrent\n S:328, P:328",
+    "type": "movie",
+    "title": "Dune (2021) MULTi VFF 2160p 10bit 4KLight DOLBY VISION BluRay AC3 5.1 x265-QTZ.mkv\nDune (2021) MULTi VFF 2160p 10bit 4KLight DOLBY VISION BluRay AC3 5.1 x265-QTZ.mkv\n 🌟4k | 💾 7.00 GB",
+    "url": "https://41.download.real-debrid.com/d/7W2R7R2A6Q2SO/Dune%20%282021%29%20MULTi%20VFF%202160p%2010bit%204KLight%20DOLBY%20VISION%20BluRay%20AC3%205.1%20x265-QTZ.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|1d1493eae5bb7a25b22d048954f3362175a047e0",
+     "bingeGroup": "Jackett|a68bda2b65b77a9f0e4ad1c4fbb738ba7fe28144",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:4, P:4",
-    "type": "series",
-    "infoHash": "03d75c879a046cc94f708c317fcacfb2cfb9b2a7",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:03d75c879a046cc94f708c317fcacfb2cfb9b2a7"
-    ],
-    "title": "[Erai-raws] One Piece - 1042 [480p][Multiple Subtitle][AC3D54F8].mkv\n[Erai-raws] One Piece - 1042 [480p][Multiple Subtitle][AC3D54F8].mkv\n 📱SD | 💾 364.00 MB",
+    "name": "YGGtorrent\n S:460, P:460",
+    "type": "movie",
+    "title": "Dune.2021.MULTI.VFF.2160p.4KLight.DOLBY.VISION.HDR10.WebRip.x265.E-AC3.Atmos-BONBON.mkv\nDune.2021.MULTI.VFF.2160p.4KLight.DOLBY.VISION.HDR10.WebRip.x265.E-AC3.Atmos-BONBON.mkv\n 🌟4k | 💾 4.00 GB",
+    "url": "https://41.download.real-debrid.com/d/NMSYPWH6UWRIY/Dune.2021.MULTI.VFF.2160p.4KLight.DOLBY.VISION.HDR10.WebRip.x265.E-AC3.Atmos-BONBON.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|03d75c879a046cc94f708c317fcacfb2cfb9b2a7",
+     "bingeGroup": "Jackett|d9de4a9129b8283dff47f0720dde23db6bd1596f",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:19, P:19",
-    "type": "series",
-    "infoHash": "ff54a82065fae7e5cccdd3596182fd12d5ba3b7a",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:ff54a82065fae7e5cccdd3596182fd12d5ba3b7a"
-    ],
-    "title": "One Piece S01E1042 VOSTFR 1080p WEB x264 AAC -Tsundere-Raws (CR).mkv\nOne Piece S01E1042 VOSTFR 1080p WEB x264 AAC -Tsundere-Raws (CR).mkv\n 🎥FHD | 💾 1406.00 MB",
+    "name": "YGGtorrent\n S:15, P:15",
+    "type": "movie",
+    "title": "Dune.2021.MULTi.2160p.BluRay.REMUX.Atmos.TrueHD.7.1.x265-PéPiTE.mkv\nDune.2021.MULTi.2160p.BluRay.REMUX.Atmos.TrueHD.7.1.x265-PéPiTE.mkv\n 🌟4k | 💾 68.00 GB",
+    "url": "https://78.download.real-debrid.com/d/2GQHSEOVYKSNE/Dune.2021.MULTi.2160p.BluRay.REMUX.Atmos.TrueHD.7.1.x265-P%C3%A9PiTE.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|ff54a82065fae7e5cccdd3596182fd12d5ba3b7a",
+     "bingeGroup": "Jackett|83829e02c1ee19e84dfd1126b996c31f3ef60be6",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:21, P:21",
-    "type": "series",
-    "infoHash": "eeb8271858dbb9db85ecedaaf6845330368487b4",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:eeb8271858dbb9db85ecedaaf6845330368487b4"
-    ],
-    "title": "[Erai-raws] One Piece - 1042 [1080p][Multiple Subtitle][EB38CDE7].mkv\n[Erai-raws] One Piece - 1042 [1080p][Multiple Subtitle][EB38CDE7].mkv\n 🎥FHD | 💾 1390.00 MB",
+    "name": "YGGtorrent\n S:42, P:42",
+    "type": "movie",
+    "title": "Dune 2021 1080p BLURAY MULTI VFF ATMOS x264-FoX.mkv\nDune 2021 1080p BLURAY MULTI VFF ATMOS x264-FoX.mkv\n 🎥FHD | 💾 21.00 GB",
+    "url": "https://41.download.real-debrid.com/d/U5XB7KBODN3YO/Dune%202021%201080p%20BLURAY%20MULTI%20VFF%20ATMOS%20x264-FoX.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|eeb8271858dbb9db85ecedaaf6845330368487b4",
+     "bingeGroup": "Jackett|f6c6fae0cebf00e73a0c5b52baa689c76771c9ad",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:16, P:17",
-    "type": "series",
-    "infoHash": "dd7b16e8e4ef6c77ddf6b2aef0e43f8748ef0962",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:dd7b16e8e4ef6c77ddf6b2aef0e43f8748ef0962"
-    ],
-    "title": "[SubsPlease] One Piece - 1042 (720p) [CFA31262].mkv\n[SubsPlease] One Piece - 1042 (720p) [CFA31262].mkv\n 📺HD | 💾 709.00 MB",
+    "name": "YGGtorrent\n S:10, P:10",
+    "type": "movie",
+    "title": "Dune.2021.MULTi.VFF.720p.BluRay.DTS.x264-ANONA.mkv\nDune.2021.MULTi.VFF.720p.BluRay.DTS.x264-ANONA.mkv\n 📺HD | 💾 10.00 GB",
+    "url": "https://41.download.real-debrid.com/d/5KQNWKP5ODW2I/Dune.2021.MULTi.VFF.720p.BluRay.DTS.x264-ANONA.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|dd7b16e8e4ef6c77ddf6b2aef0e43f8748ef0962",
+     "bingeGroup": "Jackett|453041044b0a0328757fdead379cbee4e540d85d",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:13, P:13",
-    "type": "series",
-    "infoHash": "b8f0a08f726d62d78cdcb2702afdd5f14138a2c6",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:b8f0a08f726d62d78cdcb2702afdd5f14138a2c6"
-    ],
-    "title": "[Judas] One Piece - 1042.mkv\n[Judas] One Piece - 1042.mkv\n | 💾 329.00 MB",
+    "name": "YGGtorrent\n S:35, P:36",
+    "type": "movie",
+    "title": "Dune Première partie 2021 MULTi VF2 1080p BluRay HDR10 TrueHD Atmos AV1-TiFou.mkv\nDune Première partie 2021 MULTi VF2 1080p BluRay HDR10 TrueHD Atmos AV1-TiFou.mkv\n 🎥FHD | 💾 21.00 GB",
+    "url": "https://78.download.real-debrid.com/d/VUS3LDEALFXTU/Dune%20Premi%C3%A8re%20partie%202021%20MULTi%20VF2%201080p%20BluRay%20HDR10%20TrueHD%20Atmos%20AV1-TiFou.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|b8f0a08f726d62d78cdcb2702afdd5f14138a2c6",
+     "bingeGroup": "Jackett|294c15288342e5f0ab8c3046280d64068919a4f0",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:8, P:9",
-    "type": "series",
-    "infoHash": "04c6868f9a9973be09957846d5c11a9cdf95666e",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:04c6868f9a9973be09957846d5c11a9cdf95666e"
-    ],
-    "title": "[SubsPlease] One Piece - 1042 (480p) [6239E003].mkv\n[SubsPlease] One Piece - 1042 (480p) [6239E003].mkv\n 📱SD | 💾 363.00 MB",
+    "name": "YGGtorrent\n S:198, P:198",
+    "type": "movie",
+    "title": "Dune (2021) MULTI 2160p 4K 10bits BluRay DOLBY VISION TrueHD Atmos.mkv\nDune (2021) MULTI 2160p 4K 10bits BluRay DOLBY VISION TrueHD Atmos.mkv\n 🌟4k | 💾 19.00 GB",
+    "url": "https://22.download.real-debrid.com/d/XTXDOU5PGI4YY/Dune%20%282021%29%20MULTI%202160p%204K%2010bits%20BluRay%20DOLBY%20VISION%20TrueHD%20Atmos.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|04c6868f9a9973be09957846d5c11a9cdf95666e",
+     "bingeGroup": "Jackett|31b5a55467390f89758dee38a6f8d9f22a81a0e7",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:53, P:53",
-    "type": "series",
-    "infoHash": "e5319376eba0caf69e58d2f51ccc145b15ab9d7b",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:e5319376eba0caf69e58d2f51ccc145b15ab9d7b"
-    ],
-    "title": "[SubsPlease] One Piece - 1042 (1080p) [7192644D].mkv\n[SubsPlease] One Piece - 1042 (1080p) [7192644D].mkv\n 🎥FHD | 💾 1389.00 MB",
+    "name": "YGGtorrent\n S:113, P:113",
+    "type": "movie",
+    "title": "Dune.2021.MULTi.VFF.1080p.BluRay.x264-ANONA.mkv\nDune.2021.MULTi.VFF.1080p.BluRay.x264-ANONA.mkv\n 🎥FHD | 💾 13.00 GB",
+    "url": "https://22.download.real-debrid.com/d/NWJUFWPS3I5UA/Dune.2021.MULTi.VFF.1080p.BluRay.x264-ANONA.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|e5319376eba0caf69e58d2f51ccc145b15ab9d7b",
+     "bingeGroup": "Jackett|b10b241312ed31adaf1f990caf9ea407a1082662",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:3, P:3",
-    "type": "series",
-    "infoHash": "ed08fcf8cc6c40a3a2f03b016bbbef4f9c1c4de4",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:ed08fcf8cc6c40a3a2f03b016bbbef4f9c1c4de4"
-    ],
-    "title": "[Valenciano] One Piece - 1042 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n[Valenciano] One Piece - 1042 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n 🎥FHD | 💾 256.00 MB",
+    "name": "YGGtorrent\n S:92, P:92",
+    "type": "movie",
+    "title": "dune.part.one.2021.multi.1080p.bluray.x264-ulysse.mkv\ndune.part.one.2021.multi.1080p.bluray.x264-ulysse.mkv\n 🎥FHD | 💾 12.00 GB",
+    "url": "https://22.download.real-debrid.com/d/KYDWZNRF6XBJ4/dune.part.one.2021.multi.1080p.bluray.x264-ulysse.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|ed08fcf8cc6c40a3a2f03b016bbbef4f9c1c4de4",
+     "bingeGroup": "Jackett|a0a976b28e92692513addebfd680bcb5f520e543",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:281, P:281",
+    "type": "movie",
+    "title": "Dune (2021) REPACK MULTi VFF 2160p 10bit 4KLight DOLBY VISION BluRay TrueHD Atmos 7.1 x265-QTZ.mkv\nDune (2021) REPACK MULTi VFF 2160p 10bit 4KLight DOLBY VISION BluRay TrueHD Atmos 7.1 x265-QTZ.mkv\n 🌟4k | 💾 12.00 GB",
+    "url": "https://58.download.real-debrid.com/d/GAHZUOXBWNEDS/Dune%20%282021%29%20REPACK%20MULTi%20VFF%202160p%2010bit%204KLight%20DOLBY%20VISION%20BluRay%20TrueHD%20Atmos%207.1%20x265-QTZ.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|743447d764974f0cf1dfb5423c5e8fa0ea7b2613",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:38, P:38",
+    "type": "movie",
+    "title": "Dune.2021.MULTi.VFF.1080p.BluRay.DTS.x264-ANONA.mkv\nDune.2021.MULTi.VFF.1080p.BluRay.DTS.x264-ANONA.mkv\n 🎥FHD | 💾 15.00 GB",
+    "url": "https://58.download.real-debrid.com/d/B6LZY6UAQPVUK/Dune.2021.MULTi.VFF.1080p.BluRay.DTS.x264-ANONA.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|72ed6efac1447986be0f80df86d4b0a837bd984e",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:106, P:107",
+    "type": "movie",
+    "title": "Dune.2021.MULTi.BLURAY.REMUX.4K.2160p.x265.TrueHD.Atmos.7.1-chrisj72.mkv\nDune.2021.MULTi.BLURAY.REMUX.4K.2160p.x265.TrueHD.Atmos.7.1-chrisj72.mkv\n 🌟4k | 💾 95.00 GB",
+    "url": "https://22.download.real-debrid.com/d/PPWTLDEUM57WU/Dune.2021.MULTi.BLURAY.REMUX.4K.2160p.x265.TrueHD.Atmos.7.1-chrisj72.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|e35fe704bffcf4f89e5f8efabe3db7763429d98d",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:41, P:41",
+    "type": "movie",
+    "title": "3D.Dune.Part.One.1.2021.MULTI.VFF.BLURAY.3D.SBS.AC3.1080px264-OLIS.mkv\n3D.Dune.Part.One.1.2021.MULTI.VFF.BLURAY.3D.SBS.AC3.1080px264-OLIS.mkv\n 🎥FHD | 💾 7.00 GB",
+    "url": "https://22.download.real-debrid.com/d/XKCAQIEIERJFY/3D.Dune.Part.One.1.2021.MULTI.VFF.BLURAY.3D.SBS.AC3.1080px264-OLIS.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|311778e8ede98e2a32bfca758b1864e81b63d59e",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:66, P:68",
+    "type": "movie",
+    "title": "Dune 2021 VFF VO DOLBY TRUEHD ATMOS 2160P UHD BLURAY REMUX HEVC HDR10 DOLBY VISION-Obi.mkv\nDune 2021 VFF VO DOLBY TRUEHD ATMOS 2160P UHD BLURAY REMUX HEVC HDR10 DOLBY VISION-Obi.mkv\n 🌟4k | 💾 73.00 GB",
+    "url": "https://58.download.real-debrid.com/d/R7OZGCS2YNFHY/Dune%202021%20VFF%20VO%20DOLBY%20TRUEHD%20ATMOS%202160P%20UHD%20BLURAY%20REMUX%20HEVC%20HDR10%20DOLBY%20VISION-Obi.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|ead34c8bcb3ff496bb3b97ca4193777a9859c448",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:6, P:6",
+    "type": "movie",
+    "title": "Dune.2021.2160p.UHD.REMUX.DoVi.HDR.HEVC.MULTI.VFF.TrueHD.Atmos.7.1.x265-TXE.mkv\nDune.2021.2160p.UHD.REMUX.DoVi.HDR.HEVC.MULTI.VFF.TrueHD.Atmos.7.1.x265-TXE.mkv\n 🌟4k | 💾 72.00 GB",
+    "url": "https://58.download.real-debrid.com/d/3XISO62LOCTZQ/Dune.2021.2160p.UHD.REMUX.DoVi.HDR.HEVC.MULTI.VFF.TrueHD.Atmos.7.1.x265-TXE.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|92d1890193a99f52b168d3a95da5f345e14bc22f",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:45, P:45",
+    "type": "movie",
+    "title": "Dune.2021.2160p.MULTi.2160p.UHD.DV.x265-FLOP.mkv\nDune.2021.2160p.MULTi.2160p.UHD.DV.x265-FLOP.mkv\n 🌟4k | 💾 30.00 GB",
+    "url": "https://22.download.real-debrid.com/d/B5BMVAJ2QYBEU/Dune.2021.2160p.MULTi.2160p.UHD.DV.x265-FLOP.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|529d8d3fa142419d72f673ae8e6d6e30dbc5b717",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:167, P:167",
+    "type": "movie",
+    "title": "Dune.2021.MULTi.VFF.2160p.BLURAY.x265.10bits.AvALoN.mkv\nDune.2021.MULTi.VFF.2160p.BLURAY.x265.10bits.AvALoN.mkv\n 🌟4k | 💾 6.00 GB",
+    "url": "https://22.download.real-debrid.com/d/APYSAZNZM4DJO/Dune.2021.MULTi.VFF.2160p.BLURAY.x265.10bits.AvALoN.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|5f4460d2a03d4380535d56fe71a32540859552f7",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:62, P:62",
+    "type": "movie",
+    "title": "Dune.2021.FRENCH.BRRip.XviD.AC3-NoTag\nDune.2021.FRENCH.BRRip.XviD.AC3-NoTag.avi\n | 💾 2.00 GB",
+    "url": "https://58.download.real-debrid.com/d/UCSOO62V2Q35I/Dune.2021.FRENCH.BRRip.XviD.AC3-NoTag.avi",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|51c6585a6eb4147841f67530a3692c9f91eb93b2",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:52, P:52",
+    "type": "movie",
+    "title": "Dune.2021.FRENCH-ENG.1080p.WEB.x264-CUSTOM-NBDY.mkv\nDune.2021.FRENCH-ENG.1080p.WEB.x264-CUSTOM-NBDY.mkv\n 🎥FHD | 💾 10.00 GB",
+    "url": "https://22.download.real-debrid.com/d/JKEGLOQUICWRE/Dune.2021.FRENCH-ENG.1080p.WEB.x264-CUSTOM-NBDY.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|95c605a87871000acecc4c6d6a8c641c8ba1194e",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:39, P:39",
+    "type": "movie",
+    "title": "[BONUS] DUNE (2021) (VOSTFR) Blu-Ray HDLIGHT MKV 1080p - ZEKEY©\nAu cœur de Dune.mkv\n | 💾 226.00 MB",
+    "url": "https://22.download.real-debrid.com/d/JLCMWZZRB3TCU/Au%20c%C5%93ur%20de%20Dune.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|ee4252f02a35e5048cd60063196163d6e777c4ca",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:28, P:28",
+    "type": "movie",
+    "title": "Planet.Dune.2021.FRENCH.720p.BluRay.x264-Slay3R.mkv\nPlanet.Dune.2021.FRENCH.720p.BluRay.x264-Slay3R.mkv\n 📺HD | 💾 4.00 GB",
+    "url": "https://58.download.real-debrid.com/d/MJ5JSQGJMYTWW/Planet.Dune.2021.FRENCH.720p.BluRay.x264-Slay3R.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|6f006f03e6d69d591ade87d274a36cb82dc699d1",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:9, P:9",
+    "type": "movie",
+    "title": "Dune.2021.Multi.VF2.Bluray.Remux.2160p.HEVC.True-HD.Atmos.ZatNik07.mkv\nDune.2021.Multi.VF2.Bluray.Remux.2160p.HEVC.True-HD.Atmos.ZatNik07.mkv\n 🌟4k | 💾 82.00 GB",
+    "url": "https://22.download.real-debrid.com/d/4DUDBF4YHAHGM/Dune.2021.Multi.VF2.Bluray.Remux.2160p.HEVC.True-HD.Atmos.ZatNik07.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|9da33d0e44c5d8e58eddd36aee3c6077df504985",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:14, P:14",
+    "type": "movie",
+    "title": "Dune.Part.One.2021.MULTi.2160p.UHD.BluRay.x265-SESKAPiLE.mkv\nDune.Part.One.2021.MULTi.2160p.UHD.BluRay.x265-SESKAPiLE.mkv\n 🌟4k | 💾 41.00 GB",
+    "url": "https://58.download.real-debrid.com/d/JI3FWMOI3LFWW/Dune.Part.One.2021.MULTi.2160p.UHD.BluRay.x265-SESKAPiLE.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|d0dea74df25fc230cb321d56ef3166c147bd0ceb",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:141, P:141",
+    "type": "movie",
+    "title": "Dune.2021.Multi.Vf2.720P.Webrip.x264-MULTIVISION.mkv\nDune.2021.Multi.Vf2.720P.Webrip.x264-MULTIVISION.mkv\n 📺HD | 💾 4.00 GB",
+    "url": "https://58.download.real-debrid.com/d/XPWNU2YKS2MYW/Dune.2021.Multi.Vf2.720P.Webrip.x264-MULTIVISION.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|aac4c0b53c0e702ee9fb84b9fb149d148465ac8d",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:61, P:61",
+    "type": "movie",
+    "title": "Dune.Part.One.2021.MULTi.1080p.BluRay.REMUX.AVC.TrueHD.Atmos.7.1-MUSTANG.mkv\nDune.Part.One.2021.MULTi.1080p.BluRay.REMUX.AVC.TrueHD.Atmos.7.1-MUSTANG.mkv\n 🎥FHD | 💾 28.00 GB",
+    "url": "https://22.download.real-debrid.com/d/LJRRZ57WXLN32/Dune.Part.One.2021.MULTi.1080p.BluRay.REMUX.AVC.TrueHD.Atmos.7.1-MUSTANG.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|5e15ce8e6f0360566e6af25a12bb1c46facaee48",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:70, P:70",
+    "type": "movie",
+    "title": "Dune.2021.MULTi.VF2.2160p.UHD.BluRay.DTS-HD.MA.ATMOS.7.1.x265.HDR-AZAZE.mkv\nDune.2021.MULTi.VF2.2160p.UHD.BluRay.DTS-HD.MA.ATMOS.7.1.x265.HDR-AZAZE.mkv\n 🌟4k | 💾 14.00 GB",
+    "url": "https://22.download.real-debrid.com/d/JFMD3BIDSGDLS/Dune.2021.MULTi.VF2.2160p.UHD.BluRay.DTS-HD.MA.ATMOS.7.1.x265.HDR-AZAZE.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|82f3f5448fa7e0db8655a8237cf036ba47298d20",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:52, P:52",
+    "type": "movie",
+    "title": "Dune.Part.One.2021.3D.Full-SBS.MULTI.1080p.10bit.Bluray.AC3.TrueHD.Atmos.x265-NS243.mkv\nDune.Part.One.2021.3D.Full-SBS.MULTI.1080p.10bit.Bluray.AC3.TrueHD.Atmos.x265-NS243.mkv\n 🎥FHD | 💾 7.00 GB",
+    "url": "https://22.download.real-debrid.com/d/ZWSFSABKS577Y/Dune.Part.One.2021.3D.Full-SBS.MULTI.1080p.10bit.Bluray.AC3.TrueHD.Atmos.x265-NS243.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|11c9b39576a1b7dfaf08fb8be1a651d73cd0147e",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:79, P:79",
+    "type": "movie",
+    "title": "Dune (2021) MULTi VFF 2160p 10bit 4KLight DOLBY VISION BluRay TrueHD Atmos 7.1 x265-QTZ.mkv\nDune (2021) MULTi VFF 2160p 10bit 4KLight DOLBY VISION BluRay TrueHD Atmos 7.1 x265-QTZ.mkv\n 🌟4k | 💾 11.00 GB",
+    "url": "https://22.download.real-debrid.com/d/5BWQKHL3IF5LS/Dune%20%282021%29%20MULTi%20VFF%202160p%2010bit%204KLight%20DOLBY%20VISION%20BluRay%20TrueHD%20Atmos%207.1%20x265-QTZ.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|59ffd380196524f834823136093a1c7c1161840e",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:85, P:85",
+    "type": "movie",
+    "title": "Dune.Part.One.2021.HYBRiD.MULTi.VF2.4K.UHD.BluRay.REMUX.CUSTOM.DoVi.HDR10Plus.HEVC.TrueHD.Atmos.7.1-Tezcat74.mkv\nDune.Part.One.2021.HYBRiD.MULTi.VF2.4K.UHD.BluRay.REMUX.CUSTOM.DoVi.HDR10Plus.HEVC.TrueHD.Atmos.7.1-Tezcat74.mkv\n 🌟4k | 💾 76.00 GB",
+    "url": "https://22.download.real-debrid.com/d/Q7J62LRDXGP7K/Dune.Part.One.2021.HYBRiD.MULTi.VF2.4K.UHD.BluRay.REMUX.CUSTOM.DoVi.HDR10Plus.HEVC.TrueHD.Atmos.7.1-Tezcat74.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|285018419ad72778fdc46e618a70ae8b6b01c16e",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:35, P:35",
+    "type": "movie",
+    "title": "Planet.Dune.2021.FRENCH.1080p.BluRay.x264-Slay3R.mkv\nPlanet.Dune.2021.FRENCH.1080p.BluRay.x264-Slay3R.mkv\n 🎥FHD | 💾 11.00 GB",
+    "url": "https://58.download.real-debrid.com/d/HLX5KN5JXDUI6/Planet.Dune.2021.FRENCH.1080p.BluRay.x264-Slay3R.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|9ee00c684c047c295f7ad0c078e33298b78739b8",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:939, P:943",
+    "type": "movie",
+    "title": "Dune.2021.VFF.1080p.BluRay.mHD.x264.AC3-ROMKENT\nDune.2021.VFF.1080p.BluRay.mHD.x264.AC3-ROMKENT.mkv\n 🎥FHD | 💾 5.00 GB",
+    "url": "https://22.download.real-debrid.com/d/5TNHUKYHB3SVW/Dune.2021.VFF.1080p.BluRay.mHD.x264.AC3-ROMKENT.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|e43576c7e8da3296eaeaccb319e6efc4b6aa52b1",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:50, P:50",
+    "type": "movie",
+    "title": "Dune.Part.One.2021.MULTi.2160p.UHD.BluRay.x265-SESKAPiLE.mkv\nDune.Part.One.2021.MULTi.2160p.UHD.BluRay.x265-SESKAPiLE.mkv\n 🌟4k | 💾 41.00 GB",
+    "url": "https://58.download.real-debrid.com/d/GOTZHNSRICUJI/Dune.Part.One.2021.MULTi.2160p.UHD.BluRay.x265-SESKAPiLE.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|f16006d43eaea4eb350a3d76e33c84a101ab0f86",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:22, P:22",
+    "type": "movie",
+    "title": "[BONUS] DUNE (2021) (VOSTFR) Blu-Ray REMUX MKV 1080p - ZEKEY©\nAu cœur de Dune.mkv\n | 💾 1089.00 MB",
+    "url": "https://58.download.real-debrid.com/d/WDSW7OQEBCXMQ/Au%20c%C5%93ur%20de%20Dune.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|0f22dddba3e2e302dfe2536eda5b5174a2492e8f",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:4, P:4",
+    "type": "movie",
+    "title": "Dune.Dreams.2021.FRENCH.720p.WEB.H264-NLX5.mkv\nDune.Dreams.2021.FRENCH.720p.WEB.H264-NLX5.mkv\n 📺HD | 💾 2.00 GB",
+    "url": "https://22.download.real-debrid.com/d/TAF4KLR5BP2CG/Dune.Dreams.2021.FRENCH.720p.WEB.H264-NLX5.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|fcc09cf12d2fb2e12ca41156dc2bf2a9da806b9e",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "YGGtorrent\n S:74, P:74",
+    "type": "movie",
+    "title": "Dune.2021.MULTi.VFF.2160p.10bits.Bluray.Dolby.Vision.Atmos.x265.AvALoN.mkv\nDune.2021.MULTi.VFF.2160p.10bits.Bluray.Dolby.Vision.Atmos.x265.AvALoN.mkv\n 🌟4k | 💾 12.00 GB",
+    "url": "https://58.download.real-debrid.com/d/JU4LAIFMJXILA/Dune.2021.MULTi.VFF.2160p.10bits.Bluray.Dolby.Vision.Atmos.x265.AvALoN.mkv",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|d888bc3c4b946e11bcc8857a08dc0cb2b85f08c9",
      "notWebReady": true
     }
    }
   ]
  },
- "kitsu:12:1043": {
+ "tt2788316:1:5": {
   "streams": [
    {
-    "name": "Nyaa.si\n S:48, P:49",
+    "name": "YGGtorrent\n S:527, P:527",
     "type": "series",
-    "infoHash": "d0a45a153e9f752ed3cd2416df645a0e6143d878",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:d0a45a153e9f752ed3cd2416df645a0e6143d878"
-    ],
-    "title": "[SubsPlease] One Piece - 1043 (1080p) [601C83B9].mkv\n[SubsPlease] One Piece - 1043 (1080p) [601C83B9].mkv\n 🎥FHD | 💾 1386.00 MB",
+    "title": "Shogun.2024.S01E05.MULTI.VFF.1080p.10bit.WEBRip.6CH.x265.HEVC-SERQPH.mkv\nShogun.2024.S01E05.MULTI.VFF.1080p.10bit.WEBRip.6CH.x265.HEVC-SERQPH.mkv\n 🎥FHD | 💾 803.00 MB",
+    "url": "https://51.download.real-debrid.com/d/MHG7CWMMYS73I/Shogun.2024.S01E05.MULTI.VFF.1080p.10bit.WEBRip.6CH.x265.HEVC-SERQPH.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|d0a45a153e9f752ed3cd2416df645a0e6143d878",
+     "bingeGroup": "Jackett|268e9cf2e3f8d6b127d1065ea4a16c39ab8e7f6f",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:25, P:25",
+    "name": "YGGtorrent\n S:537, P:557",
     "type": "series",
-    "infoHash": "e34996b7c0d459db859c0e5f4296f1da4c7a3645",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:e34996b7c0d459db859c0e5f4296f1da4c7a3645"
-    ],
-    "title": "[Erai-raws] One Piece - 1043 [1080p][Multiple Subtitle][EF8F04EC].mkv\n[Erai-raws] One Piece - 1043 [1080p][Multiple Subtitle][EF8F04EC].mkv\n 🎥FHD | 💾 1387.00 MB",
+    "title": "Shogun.2024.S01.MULTi.1080p.WEB.H265-FW\nShogun.2024.S01E05.MULTi.1080p.WEB.H265-FW/Shogun.2024.S01E05.MULTi.1080p.WEB.H265-FW.mkv\n 🎥FHD | 💾 1677.00 MB",
+    "url": "https://20.download.real-debrid.com/d/SKW36P3CIOFDA/Shogun.2024.S01E05.MULTi.1080p.WEB.H265-FW.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|e34996b7c0d459db859c0e5f4296f1da4c7a3645",
+     "bingeGroup": "Jackett|9742fa77a2b25a468abfbe1b22515a8daa9605d3",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:13, P:13",
+    "name": "YGGtorrent\n S:9, P:9",
     "type": "series",
-    "infoHash": "1fa7c7f201ad1ca50d43bd227acbb2db3a4cf604",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:1fa7c7f201ad1ca50d43bd227acbb2db3a4cf604"
-    ],
-    "title": "[Judas] One Piece - 1043.mkv\n[Judas] One Piece - 1043.mkv\n | 💾 353.00 MB",
+    "title": "Fuuun Ishin Dai☆Shogun\nFuuun Ishin Dai☆Shogun - S01E05 - Fin de l’été à Nagasaki, le soir du lâcher de lanternes.mkv\n | 💾 1374.00 MB",
+    "url": "https://20.download.real-debrid.com/d/OFXE3NL5NSEHO/Fuuun%20Ishin%20Dai%E2%98%86Shogun%20-%20S01E05%20-%20Fin%20de%20l%E2%80%99%C3%A9t%C3%A9%20%C3%A0%20Nagasaki%2C%20le%20soir%20du%20l%C3%A2cher%20de%20lanternes.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|1fa7c7f201ad1ca50d43bd227acbb2db3a4cf604",
+     "bingeGroup": "Jackett|79bb6d01f725622b4dbc0074ca66b927d284dcfe",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:11, P:13",
+    "name": "YGGtorrent\n S:68, P:68",
     "type": "series",
-    "infoHash": "9045a8b82b8a6ba35e63a1bf5e09aebe638a61c5",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:9045a8b82b8a6ba35e63a1bf5e09aebe638a61c5"
-    ],
-    "title": "[Anime Land] One Piece 1043 (WEBRip 1080p Hi10P AAC) RAW [529BCCFF].mp4\n[Anime Land] One Piece 1043 (WEBRip 1080p Hi10P AAC) RAW [529BCCFF].mp4\n 🎥FHD | 💾 1066.00 MB",
+    "title": "James Clavell's Shogun\nJames Clavell's Shogun S01E05.mkv\n | 💾 2.00 GB",
+    "url": "https://51.download.real-debrid.com/d/HJV7GRDWT7MC4/James%20Clavell%27s%20Shogun%20S01E05.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|9045a8b82b8a6ba35e63a1bf5e09aebe638a61c5",
+     "bingeGroup": "Jackett|1c8b9883e2b9956029ac90d39b94d57c7b98238f",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:17, P:19",
+    "name": "YGGtorrent\n S:209, P:209",
     "type": "series",
-    "infoHash": "8a83a862882edaf439360144d63aff664792f4d6",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:8a83a862882edaf439360144d63aff664792f4d6"
-    ],
-    "title": "[SubsPlease] One Piece - 1043 (720p) [FE5B0C1E].mkv\n[SubsPlease] One Piece - 1043 (720p) [FE5B0C1E].mkv\n 📺HD | 💾 708.00 MB",
+    "title": "Shogun.2024.S01E05.MULTi.1080p.WEBRip.x264.EAC3-MULTiViSiON.mkv\nShogun.2024.S01E05.MULTi.1080p.WEBRip.x264.EAC3-MULTiViSiON.mkv\n 🎥FHD | 💾 1212.00 MB",
+    "url": "https://40.download.real-debrid.com/d/DTMIH3CRXJXT2/Shogun.2024.S01E05.MULTi.1080p.WEBRip.x264.EAC3-MULTiViSiON.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|8a83a862882edaf439360144d63aff664792f4d6",
+     "bingeGroup": "Jackett|df7b5c6aad6564ba3bb61d6b4405ef1ce17770fc",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:9, P:10",
+    "name": "YGGtorrent\n S:77, P:86",
     "type": "series",
-    "infoHash": "bb0a8f3600130956692b37bb80cc217b94986b94",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:bb0a8f3600130956692b37bb80cc217b94986b94"
-    ],
-    "title": "[SubsPlease] One Piece - 1043 (480p) [1C85DCDA].mkv\n[SubsPlease] One Piece - 1043 (480p) [1C85DCDA].mkv\n 📱SD | 💾 363.00 MB",
+    "title": "Shogun.2024.S01.MULTi.1080p.WEB.H264-FW\nShogun.2024.S01E05.MULTi.1080p.WEB.H264-FW/Shogun.2024.S01E05.MULTi.1080p.WEB.H264-FW.mkv\n 🎥FHD | 💾 2.00 GB",
+    "url": "https://40.download.real-debrid.com/d/E6IBFR3BI3IXC/Shogun.2024.S01E05.MULTi.1080p.WEB.H264-FW.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|bb0a8f3600130956692b37bb80cc217b94986b94",
-     "notWebReady": true
-    }
-   }
-  ]
- },
- "kitsu:12:1044": {
-  "streams": [
-   {
-    "name": "Nyaa.si\n S:20, P:20",
-    "type": "series",
-    "infoHash": "8f8fce69ee4e4923b70d0e315ff943c1728a0d62",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:8f8fce69ee4e4923b70d0e315ff943c1728a0d62"
-    ],
-    "title": "One Piece S01E1044 VOSTFR 1080p WEB x264 AAC -Tsundere-Raws (CR).mkv\nOne Piece S01E1044 VOSTFR 1080p WEB x264 AAC -Tsundere-Raws (CR).mkv\n 🎥FHD | 💾 1406.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|8f8fce69ee4e4923b70d0e315ff943c1728a0d62",
+     "bingeGroup": "Jackett|9e0825fdf27f3e157a5de0ece77d22da08222586",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:3, P:3",
+    "name": "YGGtorrent\n S:815, P:815",
     "type": "series",
-    "infoHash": "b8abc18c33bb2461e17e48df541e8ee3d8dbb6dc",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:b8abc18c33bb2461e17e48df541e8ee3d8dbb6dc"
-    ],
-    "title": "[Valenciano] One Piece - 1044 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n[Valenciano] One Piece - 1044 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n 🎥FHD | 💾 293.00 MB",
+    "title": "Shogun.2024.S01E05.MULTi.1080p.WEB.H265-FW\nShogun.2024.S01E05.MULTi.1080p.WEB.H265-FW.mkv\n 🎥FHD | 💾 1677.00 MB",
+    "url": "https://40.download.real-debrid.com/d/VJEWIWWK5FL7I/Shogun.2024.S01E05.MULTi.1080p.WEB.H265-FW.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|b8abc18c33bb2461e17e48df541e8ee3d8dbb6dc",
+     "bingeGroup": "Jackett|0708ea4221fc225226a5da70b380e7561556ff9d",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:2, P:2",
+    "name": "YGGtorrent\n S:83, P:88",
     "type": "series",
-    "infoHash": "925037d2bae949e911359420e58bbd82c74faab5",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:925037d2bae949e911359420e58bbd82c74faab5"
-    ],
-    "title": "One Piece S01E1044 VOSTFR 720p WEB x264 AAC -Tsundere-Raws (CR).mkv\nOne Piece S01E1044 VOSTFR 720p WEB x264 AAC -Tsundere-Raws (CR).mkv\n 📺HD | 💾 724.00 MB",
+    "title": "Shogun.2024.S01.MULTi.HDR.DV.2160p.WEB.H265-FW\nShogun.2024.S01E05.MULTi.HDR.DV.2160p.WEB.H265-FW/Shogun.2024.S01E05.MULTi.HDR.DV.2160p.WEB.H265-FW.mkv\n 🌟4k | 💾 5.00 GB",
+    "url": "https://40.download.real-debrid.com/d/FJ75KJDAW3LJA/Shogun.2024.S01.MULTi.HDR.DV.2160p.WEB.H265-FW.rar",
     "behaviorHints": {
-     "bingeGroup": "Jackett|925037d2bae949e911359420e58bbd82c74faab5",
+     "bingeGroup": "Jackett|09806119efdbfa34be4debe587ca34f38d1b1559",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:23, P:23",
+    "name": "YGGtorrent\n S:437, P:437",
     "type": "series",
-    "infoHash": "03d45d34b3a4096a4dec95b4a237f653a6749625",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:03d45d34b3a4096a4dec95b4a237f653a6749625"
-    ],
-    "title": "[Erai-raws] One Piece - 1044 [1080p][E344C712].mkv\n[Erai-raws] One Piece - 1044 [1080p][E344C712].mkv\n 🎥FHD | 💾 1389.00 MB",
+    "title": "Shogun.2024.S01E05.MULTi.1080p.WEB.H264-FW\nShogun.2024.S01E05.MULTi.1080p.WEB.H264-FW.mkv\n 🎥FHD | 💾 2.00 GB",
+    "url": "https://40.download.real-debrid.com/d/4FY5PE744VNZ4/Shogun.2024.S01E05.MULTi.1080p.WEB.H264-FW.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|03d45d34b3a4096a4dec95b4a237f653a6749625",
+     "bingeGroup": "Jackett|a4b1ca724b781df61064fd963a205e29d7bb30d7",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:16, P:17",
+    "name": "YGGtorrent\n S:1162, P:1208",
     "type": "series",
-    "infoHash": "da3c57763757dfbccabe3dadebb77a0973364883",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:da3c57763757dfbccabe3dadebb77a0973364883"
-    ],
-    "title": "[SubsPlease] One Piece - 1044 (720p) [C7EBF714].mkv\n[SubsPlease] One Piece - 1044 (720p) [C7EBF714].mkv\n 📺HD | 💾 706.00 MB",
+    "title": "Shogun\nShogun.2024.S01E05.MULTI.VFF.1080p.10bit.WEBRip.6CH.x265.HEVC-SERQPH.mkv\n 🎥FHD | 💾 803.00 MB",
+    "url": "https://83.download.real-debrid.com/d/OL5HS4HN4PUYI/Shogun.2024.S01E05.MULTI.VFF.1080p.10bit.WEBRip.6CH.x265.HEVC-SERQPH.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|da3c57763757dfbccabe3dadebb77a0973364883",
+     "bingeGroup": "Jackett|87ef21c50f0ec0e715edef866346c7130f93a5b9",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:9, P:11",
+    "name": "YGGtorrent\n S:158, P:163",
     "type": "series",
-    "infoHash": "6dcf6f6bf8a3656c86ad86f1d93a82723765438d",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:6dcf6f6bf8a3656c86ad86f1d93a82723765438d"
-    ],
-    "title": "[Anime Land] One Piece 1044 (WEBRip 1080p Hi10P AAC) RAW [CDD81A9E].mp4\n[Anime Land] One Piece 1044 (WEBRip 1080p Hi10P AAC) RAW [CDD81A9E].mp4\n 🎥FHD | 💾 1246.00 MB",
+    "title": "Shogun.2024.S01.MULTI.720p.WEB.H264-TFA\nShogun.2024.S01E05.MULTI.720p.WEB.H264-TFA.mkv\n 📺HD | 💾 1534.00 MB",
+    "url": "https://83.download.real-debrid.com/d/CVIFB2SHEJHGO/Shogun.2024.S01E05.MULTI.720p.WEB.H264-TFA.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|6dcf6f6bf8a3656c86ad86f1d93a82723765438d",
-     "notWebReady": true
-    }
-   }
-  ]
- },
- "kitsu:12:1045": {
-  "streams": [
-   {
-    "name": "Nyaa.si\n S:9, P:11",
-    "type": "series",
-    "infoHash": "28ffe1d428cb3cb0cfa3c7dbf50781a40faa2565",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:28ffe1d428cb3cb0cfa3c7dbf50781a40faa2565"
-    ],
-    "title": "[SubsPlease] One Piece - 1045 (480p) [EFA95E49].mkv\n[SubsPlease] One Piece - 1045 (480p) [EFA95E49].mkv\n 📱SD | 💾 363.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|28ffe1d428cb3cb0cfa3c7dbf50781a40faa2565",
+     "bingeGroup": "Jackett|17450155b3b2394a2b4ae4dd4ddb43dd1ce5ed27",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:23, P:23",
+    "name": "YGGtorrent\n S:5, P:5",
     "type": "series",
-    "infoHash": "7aeac067c61cae0576eb35c74271094fbad540f6",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:7aeac067c61cae0576eb35c74271094fbad540f6"
-    ],
-    "title": "One Piece S01E1045 VOSTFR 1080p WEB x264 AAC -Tsundere-Raws (CR).mkv\nOne Piece S01E1045 VOSTFR 1080p WEB x264 AAC -Tsundere-Raws (CR).mkv\n 🎥FHD | 💾 1405.00 MB",
+    "title": "Dai-Shogun.Great.Revolution.S01.SUBFRENCH.1080p.WEB.x264-T3KASHi\nDai-Shogun.Great.Revolution.S01E05.SUBFRENCH.1080p.WEB.x264-T3KASHi.mkv\n 🎥FHD | 💾 1374.00 MB",
+    "url": "https://40.download.real-debrid.com/d/JL4XKBQU6FFSW/Dai-Shogun.Great.Revolution.S01E05.SUBFRENCH.1080p.WEB.x264-T3KASHi.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|7aeac067c61cae0576eb35c74271094fbad540f6",
+     "bingeGroup": "Jackett|2e8d763c5bfd8995b245a55efb2b272dc488985f",
      "notWebReady": true
     }
    },
    {
-    "name": "Nyaa.si\n S:17, P:17",
+    "name": "YGGtorrent\n S:153, P:154",
     "type": "series",
-    "infoHash": "dbae69a68ccaf93f149d88789816b4eae974d092",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:dbae69a68ccaf93f149d88789816b4eae974d092"
-    ],
-    "title": "[Judas] One Piece - 1045.mkv\n[Judas] One Piece - 1045.mkv\n | 💾 399.00 MB",
+    "title": "Shogun.2024.S01E05.MULTI.720p.WEB.H264-TFA\nShogun.2024.S01E05.MULTI.720p.WEB.H264-TFA.mkv\n 📺HD | 💾 1534.00 MB",
+    "url": "https://40.download.real-debrid.com/d/TYXBRHAO2CAX2/Shogun.2024.S01E05.MULTI.720p.WEB.H264-TFA.mkv",
     "behaviorHints": {
-     "bingeGroup": "Jackett|dbae69a68ccaf93f149d88789816b4eae974d092",
-     "notWebReady": true
-    }
-   },
-   {
-    "name": "Nyaa.si\n S:18, P:18",
-    "type": "series",
-    "infoHash": "c59737ea1dfbdbfbeee24caf1c1dc80330eebece",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:c59737ea1dfbdbfbeee24caf1c1dc80330eebece"
-    ],
-    "title": "[SubsPlease] One Piece - 1045 (720p) [D4339E38].mkv\n[SubsPlease] One Piece - 1045 (720p) [D4339E38].mkv\n 📺HD | 💾 708.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|c59737ea1dfbdbfbeee24caf1c1dc80330eebece",
-     "notWebReady": true
-    }
-   },
-   {
-    "name": "Nyaa.si\n S:3, P:3",
-    "type": "series",
-    "infoHash": "9ba9732699975b7f84cb392441d32033091589df",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:9ba9732699975b7f84cb392441d32033091589df"
-    ],
-    "title": "[Valenciano] One Piece - 1045 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n[Valenciano] One Piece - 1045 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n 🎥FHD | 💾 276.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|9ba9732699975b7f84cb392441d32033091589df",
-     "notWebReady": true
-    }
-   },
-   {
-    "name": "Nyaa.si\n S:49, P:49",
-    "type": "series",
-    "infoHash": "e09a343e7d9076e394ed15f85c078fbb30ebe7b3",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:e09a343e7d9076e394ed15f85c078fbb30ebe7b3"
-    ],
-    "title": "[SubsPlease] One Piece - 1045 (1080p) [B8E18DD7].mkv\n[SubsPlease] One Piece - 1045 (1080p) [B8E18DD7].mkv\n 🎥FHD | 💾 1388.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|e09a343e7d9076e394ed15f85c078fbb30ebe7b3",
-     "notWebReady": true
-    }
-   },
-   {
-    "name": "Nyaa.si\n S:5, P:5",
-    "type": "series",
-    "infoHash": "5e073b87dc02dfece398f120a1a91a965718d974",
-    "fileIdx": 0,
-    "sources": [
-     "tracker:http://nyaa.tracker.wf:7777/announce",
-     "tracker:udp://open.stealth.si:80/announce",
-     "tracker:udp://tracker.opentrackr.org:1337/announce",
-     "tracker:udp://exodus.desync.com:6969/announce",
-     "tracker:udp://tracker.torrent.eu.org:451/announce",
-     "dht:5e073b87dc02dfece398f120a1a91a965718d974"
-    ],
-    "title": "One Piece S01E1045 VOSTFR 720p WEB x264 AAC -Tsundere-Raws (CR).mkv\nOne Piece S01E1045 VOSTFR 720p WEB x264 AAC -Tsundere-Raws (CR).mkv\n 📺HD | 💾 726.00 MB",
-    "behaviorHints": {
-     "bingeGroup": "Jackett|5e073b87dc02dfece398f120a1a91a965718d974",
+     "bingeGroup": "Jackett|54426394146223127fd6d2b9294a5071a2674f27",
      "notWebReady": true
     }
    }
