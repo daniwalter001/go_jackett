@@ -118,20 +118,14 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 
 	host := "http://37.187.141.48:9117"
 	apiKey := "10f9a9qd7wtq1lxutduyxz33zprl2gri"
-	// host := "http://64.217.144.218:9117"
-	// apiKey := "34m05y3vdqnbiauaenqlp7rqj2g8ovz3"
-	category := ""
+	//
+	category := "5000"
 	if type_ == "movie" {
-		category = ""
+		category = "2000"
 	}
 	query = strings.ReplaceAll(query, " ", "+")
 
 	api := fmt.Sprintf("%s/api/v2.0/indexers/yggtorrent/results/torznab/api?apikey=%s&cat=%s&q=%s&cache=false", host, apiKey, category, query)
-
-	// api := fmt.Sprintf("%s/api/v2.0/indexers/thepiratebay/results/torznab/api?apikey=%s&t=search&cat=%s&q=%s&cache=false", host, apiKey, category, query)
-
-	// http://64.217.144.218:9117/api/v2.0/indexers/thepiratebay/results/torznab/api?apikey=34m05y3vdqnbiauaenqlp7rqj2g8ovz3&t=search&cat=&q=
-	// http://64.217.144.218:9117/api/v2.0/indexers/nyaasi/results/torznab/api?apikey=34m05y3vdqnbiauaenqlp7rqj2g8ovz3&t=search&cat=&q=
 
 	request := fiber.Get(api)
 
@@ -245,6 +239,7 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 	}
 	// fmt.Printf("6Removing...%s\n", file.Name())
 	os.Remove(file.Name())
+	// fmt.Println(file.Name())
 
 	var files []torrent.File
 
@@ -252,6 +247,7 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 		file := t.Files()[i]
 		files = append(files, *file)
 	}
+	// fmt.Println(PrettyPrint(files))
 	item.TorrentData = files
 
 	return item
