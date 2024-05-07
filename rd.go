@@ -1,9 +1,12 @@
-package debrid
+package main
 
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"math/rand"
+	"net/http"
+	"strings"
 	"time"
 
 	"github.com/daniwalter001/jackett_fiber/types/rd"
@@ -11,8 +14,6 @@ import (
 )
 
 var keys = []string{"N4LZTV4IC4MUUJBFQMNFHSR4OCT4EV2SL4OTDPDPBMQYEFQML3GQ",
-	"MUEFTLYM4XHWZ7MWFUYUHMS27SAOCX7D5W2HY67TZJXHDINYW5MQ",
-	"YODGFXPGMJO6MEHZPILLK5OOKQ3X7W4LHBJFEGSMJMAWTDJKADBQ",
 	"ZDHDDYHFB67Q2QAE3FBWKDPQ3AFGNWA2JALNWCDZR2E4QDMRS5TQ",
 	"SKY26TG4NFOE4QJX55ISNVITB7Q2S7ZGKFOB34RUUJOBWHABJUHQ",
 	"2ILZOV4OXUWH2V3D276BLKVV6XRACRRVH4DPL4XSDRPB2V6QALXA",
@@ -22,8 +23,10 @@ func getApiKey() string {
 	return keys[rand.Intn(len(keys))]
 }
 
+var rdApikey = keys[rand.Intn(len(keys))]
+
 func bearer() string {
-	return fmt.Sprintf("Bearer %s", getApiKey())
+	return fmt.Sprintf("Bearer %s", rdApikey)
 }
 
 func checkTorrentFileinRD(hash string) (rd.AvailabilityResponse, rd.RdError) {
@@ -53,29 +56,33 @@ func checkTorrentFileinRD(hash string) (rd.AvailabilityResponse, rd.RdError) {
 
 }
 
-func addTorrentFileinRD(magnet string) (rd.AddTorrentResponse, rd.RdError) {
+func addTorrentFileinRD2(magnet string) (rd.AddTorrentResponse, rd.RdError) {
 	if len(magnet) == 0 {
-		return rd.AddTorrentResponse{}, rd.RdError{}
+		return rd.AddTorrentResponse{}, rd.RdError{Error: "magnet not defined"}
 	}
-	// magnet:?xt=urn:btih:fc30f2a7628a28330ba9e84d04992b6ea3a8d637
 
-	api := "https://api.real-debrid.com/rest/1.0/torrents/addMagnet"
+	url := "https://api.real-debrid.com/rest/1.0/torrents/addMagnet"
 
-	request := fiber.Post(api).Timeout(5 * time.Second).Body([]byte(fmt.Sprintf("magnet=%s", magnet)))
-	request.Set("Authorization", bearer())
-	request.Set("Content-Type", "application/x-www-form-urlencoded")
+	payload := strings.NewReader(fmt.Sprintf("magnet=%s", magnet))
 
-	status, data, err := request.Bytes()
-	if err != nil {
-		return rd.AddTorrentResponse{}, rd.RdError{}
-	}
-	if status >= 400 {
+	req, _ := http.NewRequest("POST", url, payload)
+
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Add("User-Agent", "insomnia/8.6.1")
+	req.Header.Add("Authorization", bearer())
+
+	res, _ := http.DefaultClient.Do(req)
+
+	body, _ := io.ReadAll(res.Body)
+
+	if res.StatusCode >= 400 {
 		var resErr rd.RdError
-		json.Unmarshal(data, &resErr)
+		json.Unmarshal(body, &resErr)
 		return rd.AddTorrentResponse{}, resErr
 	}
 	var resJson rd.AddTorrentResponse
-	json.Unmarshal(data, &resJson)
+	json.Unmarshal(body, &resJson)
+	defer res.Body.Close()
 	return resJson, rd.RdError{}
 
 }
@@ -85,6 +92,7 @@ func getTorrentInfofromRD(id string) (rd.TorrentInfoResponse, rd.RdError) {
 		return rd.TorrentInfoResponse{}, rd.RdError{}
 
 	}
+
 	api := fmt.Sprintf("https://api.real-debrid.com/rest/1.0/torrents/info/%s", id)
 
 	request := fiber.Get(api).Timeout(5 * time.Second)
@@ -109,7 +117,7 @@ func getTorrentInfofromRD(id string) (rd.TorrentInfoResponse, rd.RdError) {
 
 func selectFilefromRD(id string, files string) (bool, rd.RdError) {
 	if len(id) == 0 {
-		return false, rd.RdError{}
+		return false, rd.RdError{Error: "id not defined"}
 	}
 	if len(files) == 0 {
 		files = "all"
@@ -117,20 +125,26 @@ func selectFilefromRD(id string, files string) (bool, rd.RdError) {
 
 	api := fmt.Sprintf("https://api.real-debrid.com/rest/1.0/torrents/selectFiles/%s", id)
 
-	request := fiber.Post(api).Timeout(5 * time.Second).Body([]byte(fmt.Sprintf("files=%s", files)))
-	request.Set("Authorization", bearer())
-	request.Set("Content-Type", "application/x-www-form-urlencoded")
+	payload := strings.NewReader(fmt.Sprintf("files=%s", files))
 
-	status, data, err := request.Bytes()
-	if err != nil {
-		return false, rd.RdError{}
-	}
-	if status >= 400 {
+	req, _ := http.NewRequest("POST", api, payload)
+
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Add("User-Agent", "insomnia/8.6.1")
+	req.Header.Add("Authorization", bearer())
+
+	res, _ := http.DefaultClient.Do(req)
+
+	body, _ := io.ReadAll(res.Body)
+
+	if res.StatusCode >= 400 {
 		var resErr rd.RdError
-		json.Unmarshal(data, &resErr)
+		json.Unmarshal(body, &resErr)
 		return false, resErr
 	}
+	defer res.Body.Close()
 	return true, rd.RdError{}
+
 }
 
 func unrestrictLinkfromRD(link string) (rd.UnrestrictLinkResponse, rd.RdError) {
@@ -140,21 +154,27 @@ func unrestrictLinkfromRD(link string) (rd.UnrestrictLinkResponse, rd.RdError) {
 
 	api := "https://api.real-debrid.com/rest/1.0/unrestrict/link"
 
-	request := fiber.Post(api).Timeout(5 * time.Second).Body([]byte(fmt.Sprintf("link=%s", link)))
-	request.Set("Authorization", bearer())
-	request.Set("Content-Type", "application/x-www-form-urlencoded")
+	payload := strings.NewReader(fmt.Sprintf("link=%s", link))
 
-	status, data, err := request.Bytes()
-	if err != nil {
-		return rd.UnrestrictLinkResponse{}, rd.RdError{}
-	}
-	if status >= 400 {
+	req, _ := http.NewRequest("POST", api, payload)
+
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Add("User-Agent", "insomnia/8.6.1")
+	req.Header.Add("Authorization", bearer())
+
+	res, _ := http.DefaultClient.Do(req)
+
+	body, _ := io.ReadAll(res.Body)
+
+	if res.StatusCode >= 400 {
 		var resErr rd.RdError
-		json.Unmarshal(data, &resErr)
+		json.Unmarshal(body, &resErr)
 		return rd.UnrestrictLinkResponse{}, resErr
 	}
 
 	var resJson rd.UnrestrictLinkResponse
-	json.Unmarshal(data, &resJson)
+	json.Unmarshal(body, &resJson)
+	defer res.Body.Close()
 	return resJson, rd.RdError{}
+
 }

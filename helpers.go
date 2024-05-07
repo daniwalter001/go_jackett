@@ -176,6 +176,15 @@ func contains(s []types.ItemsParsed, e types.ItemsParsed) bool {
 	return false
 }
 
+func filter[T any](slice []T, cb func(T) bool) (ret []T) {
+	for _, v := range slice {
+		if cb(v) {
+			ret = append(ret, v)
+		}
+	}
+	return ret
+}
+
 func defaultTracker() []string {
 	return []string{
 		"udp://open.stealth.si:80/announce",

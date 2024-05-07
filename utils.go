@@ -116,19 +116,19 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetEscapeHTML(false)
 
-	// host := "http://37.187.141.48:9117"
-	// apiKey := "10f9a9qd7wtq1lxutduyxz33zprl2gri"
-	host := "http://64.217.144.218:9117"
-	apiKey := "34m05y3vdqnbiauaenqlp7rqj2g8ovz3"
+	host := "http://37.187.141.48:9117"
+	apiKey := "10f9a9qd7wtq1lxutduyxz33zprl2gri"
+	// host := "http://64.217.144.218:9117"
+	// apiKey := "34m05y3vdqnbiauaenqlp7rqj2g8ovz3"
 	category := ""
 	if type_ == "movie" {
 		category = ""
 	}
-
-	// api := fmt.Sprintf("%s/api/v2.0/indexers/yggtorrent/results/torznab/api?apikey=%s&cat=%s&q=%s&cache=false", host, apiKey, category, query)
-
 	query = strings.ReplaceAll(query, " ", "+")
-	api := fmt.Sprintf("%s/api/v2.0/indexers/thepiratebay/results/torznab/api?apikey=%s&t=search&cat=%s&q=%s&cache=false", host, apiKey, category, query)
+
+	api := fmt.Sprintf("%s/api/v2.0/indexers/yggtorrent/results/torznab/api?apikey=%s&cat=%s&q=%s&cache=false", host, apiKey, category, query)
+
+	// api := fmt.Sprintf("%s/api/v2.0/indexers/thepiratebay/results/torznab/api?apikey=%s&t=search&cat=%s&q=%s&cache=false", host, apiKey, category, query)
 
 	// http://64.217.144.218:9117/api/v2.0/indexers/thepiratebay/results/torznab/api?apikey=34m05y3vdqnbiauaenqlp7rqj2g8ovz3&t=search&cat=&q=
 	// http://64.217.144.218:9117/api/v2.0/indexers/nyaasi/results/torznab/api?apikey=34m05y3vdqnbiauaenqlp7rqj2g8ovz3&t=search&cat=&q=
@@ -204,21 +204,21 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 	status, data, err := request.Bytes()
 
 	if status >= 400 {
-		fmt.Printf("1.5Removing...%d %s\n", status, file.Name())
+		// fmt.Printf("1.5Removing...%d %s\n", status, file.Name())
 		os.Remove(file.Name())
 		return item
 	}
 
 	if err != nil {
 		fmt.Printf("%s\n", err)
-		fmt.Printf("2Removing...%s\n", file.Name())
+		// fmt.Printf("2Removing...%s\n", file.Name())
 		os.Remove(file.Name())
 		return item
 	}
 
 	if err != nil {
 		fmt.Println(err)
-		fmt.Printf("3Removing...%s\n", file.Name())
+		// fmt.Printf("3Removing...%s\n", file.Name())
 		os.Remove(file.Name())
 		return item
 	}
@@ -243,7 +243,7 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 		os.Remove(file.Name())
 		return item
 	}
-	fmt.Printf("6Removing...%s\n", file.Name())
+	// fmt.Printf("6Removing...%s\n", file.Name())
 	os.Remove(file.Name())
 
 	var files []torrent.File
@@ -279,12 +279,12 @@ func readTorrentFromMagnet(item types.ItemsParsed) types.ItemsParsed {
 
 	select {
 	case <-time.After(15 * time.Second):
-		fmt.Printf("%s => %s\n", item.Title, "Timeout1")
+		// fmt.Printf("%s => %s\n", item.Title, "Timeout1")
 		return item
 	case res := <-ed:
 		if res == "okok" {
 			var files []torrent.File
-			fmt.Printf("%s =2> %d\n", item.Title, len(t.Files()))
+			// fmt.Printf("%s =2> %d\n", item.Title, len(t.Files()))
 			for i := 0; i < len(t.Files()); i++ {
 				file := t.Files()[i]
 				files = append(files, *file)
@@ -295,26 +295,3 @@ func readTorrentFromMagnet(item types.ItemsParsed) types.ItemsParsed {
 	}
 
 }
-
-// files_temp := make(chan []*torrent.File, 1)
-
-// go func() {
-// 	files_temp <- t.Files()
-// }()
-
-// select {
-// case files_temp := <-files_temp:
-// 	{
-// 		fmt.Printf("%s =2> %d\n", item.Title, len(files_temp))
-// 		for i := 0; i < len(files_temp); i++ {
-// 			file := files_temp[i]
-// 			files = append(files, *file)
-// 		}
-// 		item.TorrentData = files
-// 		return item
-// 	}
-
-// case <-time.After(5 * time.Second):
-// 	fmt.Printf("%s => %s\n", item.Title, "Timeout2")
-// 	return item
-// }

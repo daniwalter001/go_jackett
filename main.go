@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -11,6 +12,7 @@ import (
 
 	"github.com/anacrolix/torrent"
 	"github.com/daniwalter001/jackett_fiber/types"
+	"github.com/daniwalter001/jackett_fiber/types/rd"
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -191,6 +193,7 @@ func main() {
 
 		wg = sync.WaitGroup{}
 		wg.Add(len(results))
+
 		for i := 0; i < len(results); i++ {
 			go func(item types.ItemsParsed) {
 				defer wg.Done()
@@ -205,15 +208,12 @@ func main() {
 		}
 		wg.Wait()
 
-		fmt.Printf("Response %d\n", len(parsedTorrentFiles))
-
 		var parsedSuitableTorrentFiles []torrent.File
-		var parsedSuitableTorrentFilesIndex = make([]int, len(parsedTorrentFiles))
+		// var parsedSuitableTorrentFilesIndex = make([]int, len(parsedTorrentFiles))
+		var parsedSuitableTorrentFilesIndex = make(map[string]int, 0)
 
 		for index, el := range parsedTorrentFiles {
 			parsedSuitableTorrentFiles = make([]torrent.File, 0)
-
-			parsedSuitableTorrentFilesIndex[index] = 0
 
 			for _index, ell := range el.TorrentData {
 				lower := strings.ToLower(ell.DisplayPath())
@@ -224,7 +224,7 @@ func main() {
 
 				if type_ == "movie" {
 					parsedSuitableTorrentFiles = append(parsedSuitableTorrentFiles, ell)
-					parsedSuitableTorrentFilesIndex[index] = _index + 1
+					parsedSuitableTorrentFilesIndex[ell.DisplayPath()] = _index + 1
 
 					break
 				} else {
@@ -237,7 +237,7 @@ func main() {
 							(abs == "true" && containsAbsoluteE_(lower, strconv.Itoa(s), strconv.Itoa(e), true, strconv.Itoa(abs_season), strconv.Itoa(abs_episode)))) &&
 							!(strings.Contains(lower, "s0") && strings.Contains(lower, "e0") && strings.Contains(lower, "season") && strings.Contains(lower, fmt.Sprintf("s%d", abs_season)) && strings.Contains(lower, fmt.Sprintf("e%d", abs_episode))))) {
 						parsedSuitableTorrentFiles = append(parsedSuitableTorrentFiles, ell)
-						parsedSuitableTorrentFilesIndex[index] = _index + 1
+						parsedSuitableTorrentFilesIndex[ell.DisplayPath()] = _index + 1
 						break
 					}
 				}
@@ -246,31 +246,119 @@ func main() {
 		}
 
 		var ttttt types.StreamMeta
+
+		fmt.Printf("Response %d\n", len(parsedTorrentFiles))
+
 		fmt.Println("Parsing that shit")
 
-		for ind, el := range parsedTorrentFiles {
-			for _, ell := range el.TorrentData {
+		wg = sync.WaitGroup{}
+		wg.Add(len(parsedTorrentFiles))
 
-				if !isVideo(ell.DisplayPath()) {
-					continue
-				}
+		nbreAdded := 0
 
-				announceList := make([]string, 0)
-				// fmt.Println(PrettyPrint(ell.Torrent().Metainfo().AnnounceList))
-				for i := 0; i < len(ell.Torrent().Metainfo().AnnounceList); i++ {
-					for j := 0; j < len(ell.Torrent().Metainfo().AnnounceList[i]); j++ {
-						announceList = append(announceList, fmt.Sprintf("tracker:%s", ell.Torrent().Metainfo().AnnounceList[i][j]))
+		for _, el := range parsedTorrentFiles {
+			go func(item types.ItemsParsed) {
+				defer wg.Done()
+				for _, ell := range el.TorrentData {
+
+					if !isVideo(ell.DisplayPath()) {
+						continue
 					}
-				}
-				// if len(announceList) > 0 {
-				// 	announceList = defaultTracker()
-				// }
-				announceList = append(announceList, fmt.Sprintf("dht:%s", ell.Torrent().InfoHash().String()))
 
-				ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.Torrent().Name(), ell.DisplayPath(), getQuality(ell.DisplayPath()), getSize(int(ell.Length()))), Name: fmt.Sprintf("%s\n S:%s, P:%s", el.Tracker, el.Seeders, el.Peers), Type: type_, InfoHash: ell.Torrent().InfoHash().String(), Sources: announceList, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.Torrent().InfoHash().String()), NotWebReady: true}, FileIdx: parsedSuitableTorrentFilesIndex[ind] - 1})
-				break
-			}
+					// ========================== RD =============================
+					fmt.Printf("Trynna some RD...\n")
+
+					infoHash := ell.Torrent().InfoHash().String()
+					// magnet := fmt.Sprint(ell.Torrent().Metainfo().Magnet(nil, ell.Torrent().Info()))
+					var folderId string
+					var details []rd.UnrestrictLinkResponse
+					var data rd.AddTorrentResponse
+
+					available, err := checkTorrentFileinRD(infoHash)
+
+					if err.Error != "" {
+						continue
+					}
+
+					v, availableCheck := available[infoHash]
+
+					if !availableCheck {
+						continue
+					}
+
+					v_ := v["rd"]
+					availableCheck = len(v_) > 0
+
+					if availableCheck || nbreAdded < 3 {
+						data, err = addTorrentFileinRD2(fmt.Sprintf("magnet:?xt=urn:btih:%s", infoHash))
+						if availableCheck {
+							fmt.Println("Cached")
+						} else {
+							fmt.Println("Added")
+							nbreAdded = nbreAdded + 1
+						}
+					}
+
+					folderId = data.ID
+					selected, err := selectFilefromRD(folderId, "all")
+					if folderId != "" && selected {
+						torrentDetails, err_ := getTorrentInfofromRD(folderId)
+						if err.Error != "" {
+							fmt.Println("Error")
+							fmt.Println(err_.Error)
+						}
+						var files []rd.Files
+						if len(torrentDetails.Files) > 0 {
+							files = filter[rd.Files](torrentDetails.Files, func(f rd.Files) bool {
+								return f.Selected == 1
+							})
+							links := torrentDetails.Links
+							selectedIndex := 0
+
+							if len(files) > 1 {
+								selectedIndex = slices.IndexFunc[[]rd.Files](files, func(t rd.Files) bool {
+									return strings.Contains(strings.ToLower(t.Path), strings.ToLower(ell.DisplayPath()))
+								})
+							}
+							if selectedIndex == -1 || len(links) < selectedIndex {
+								selectedIndex = 0
+							}
+							if len(links) > 0 {
+								unrestrictLink, errun := unrestrictLinkfromRD(links[selectedIndex])
+								details = append(details, unrestrictLink)
+								// fmt.Println(PrettyPrint(errun.Error))
+								// fmt.Println(PrettyPrint(details[len(details)-1]))
+								if errun.Error != "" {
+									continue
+								}
+							}
+						}
+
+					}
+
+					if len(details) > 0 {
+						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.Torrent().Name(), ell.DisplayPath(), getQuality(ell.DisplayPath()), getSize(int(ell.Length()))), Name: fmt.Sprintf("%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.Torrent().InfoHash().String()), NotWebReady: true}, URL: details[0].Download})
+
+						// ========================== RD =============================
+						// } else {
+						// } else {
+
+						// announceList := make([]string, 0)
+						// for i := 0; i < len(ell.Torrent().Metainfo().AnnounceList); i++ {
+						// 	for j := 0; j < len(ell.Torrent().Metainfo().AnnounceList[i]); j++ {
+						// 		announceList = append(announceList, fmt.Sprintf("tracker:%s", ell.Torrent().Metainfo().AnnounceList[i][j]))
+						// 	}
+						// }
+						// announceList = append(announceList, fmt.Sprintf("dht:%s", ell.Torrent().InfoHash().String()))
+
+						// ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.Torrent().Name(), ell.DisplayPath(), getQuality(ell.DisplayPath()), getSize(int(ell.Length()))), Name: fmt.Sprintf("%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, InfoHash: ell.Torrent().InfoHash().String(), Sources: announceList, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.Torrent().InfoHash().String()), NotWebReady: true}, FileIdx: parsedSuitableTorrentFilesIndex[ell.DisplayPath()] - 1})
+					}
+
+				}
+			}(el)
 		}
+
+		wg.Wait()
 
 		if len(ttttt.Streams) > 0 {
 			mapCache[id] = ttttt
