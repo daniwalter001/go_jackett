@@ -128,7 +128,7 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	// api := fmt.Sprintf("%s/api/v2.0/indexers/yggtorrent/results/torznab/api?apikey=%s&cat=%s&q=%s&cache=false", host, apiKey, category, query)
 
 	query = strings.ReplaceAll(query, " ", "+")
-	api := fmt.Sprintf("%s/api/v2.0/indexers/nyaasi/results/torznab/api?apikey=%s&t=search&cat=%s&q=%s&cache=false", host, apiKey, category, query)
+	api := fmt.Sprintf("%s/api/v2.0/indexers/thepiratebay/results/torznab/api?apikey=%s&t=search&cat=%s&q=%s&cache=false", host, apiKey, category, query)
 
 	// http://64.217.144.218:9117/api/v2.0/indexers/thepiratebay/results/torznab/api?apikey=34m05y3vdqnbiauaenqlp7rqj2g8ovz3&t=search&cat=&q=
 	// http://64.217.144.218:9117/api/v2.0/indexers/nyaasi/results/torznab/api?apikey=34m05y3vdqnbiauaenqlp7rqj2g8ovz3&t=search&cat=&q=
@@ -199,8 +199,7 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 		return item
 	}
 
-	request := fiber.Get(url)
-	request.Timeout(time.Second * 30)
+	request := fiber.Get(url).Timeout(5 * time.Second)
 
 	status, data, err := request.Bytes()
 

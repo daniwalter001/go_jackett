@@ -820,5 +820,387 @@
     }
    }
   ]
+ },
+ "kitsu:12:1047": {
+  "streams": [
+   {
+    "name": "Nyaa.si\n S:21, P:21",
+    "type": "series",
+    "infoHash": "6f5c55815327e31649518978b1f6633140ec5def",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:6f5c55815327e31649518978b1f6633140ec5def"
+    ],
+    "title": "[Erai-raws] One Piece - 1047 [1080p][FC827D51].mkv\n[Erai-raws] One Piece - 1047 [1080p][FC827D51].mkv\n 🎥FHD | 💾 1389.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|6f5c55815327e31649518978b1f6633140ec5def",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:15, P:15",
+    "type": "series",
+    "infoHash": "c9a04691c8b2963c1f0ef6aac89b635c087bb282",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:c9a04691c8b2963c1f0ef6aac89b635c087bb282"
+    ],
+    "title": "[Judas] One Piece - 1047.mkv\n[Judas] One Piece - 1047.mkv\n | 💾 398.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|c9a04691c8b2963c1f0ef6aac89b635c087bb282",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:2, P:2",
+    "type": "series",
+    "infoHash": "2c8651f8feb0ac6e47d6840f12034a55f4651256",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:2c8651f8feb0ac6e47d6840f12034a55f4651256"
+    ],
+    "title": "[Valenciano] One Piece - 1047 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n[Valenciano] One Piece - 1047 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n 🎥FHD | 💾 309.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|2c8651f8feb0ac6e47d6840f12034a55f4651256",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:5, P:6",
+    "type": "series",
+    "infoHash": "65d90708d0bfd20ae0b7ad7ff30606f5140e7ea1",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:65d90708d0bfd20ae0b7ad7ff30606f5140e7ea1"
+    ],
+    "title": "[ToonsHub] One Piece - 1047 (JAP 2160p x264 AAC) [Multi-Subs].mkv\n[ToonsHub] One Piece - 1047 (JAP 2160p x264 AAC) [Multi-Subs].mkv\n 🌟4k | 💾 1940.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|65d90708d0bfd20ae0b7ad7ff30606f5140e7ea1",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:46, P:47",
+    "type": "series",
+    "infoHash": "a9407d0241eab927c09054a338d6caf1f88dd789",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:a9407d0241eab927c09054a338d6caf1f88dd789"
+    ],
+    "title": "[SubsPlease] One Piece - 1047 (1080p) [61878886].mkv\n[SubsPlease] One Piece - 1047 (1080p) [61878886].mkv\n 🎥FHD | 💾 1388.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|a9407d0241eab927c09054a338d6caf1f88dd789",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:17, P:17",
+    "type": "series",
+    "infoHash": "adad0802bc8bee3fe651aff90ca9f0116383b5d0",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:adad0802bc8bee3fe651aff90ca9f0116383b5d0"
+    ],
+    "title": "[SubsPlease] One Piece - 1047 (720p) [BF2DE705].mkv\n[SubsPlease] One Piece - 1047 (720p) [BF2DE705].mkv\n 📺HD | 💾 709.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|adad0802bc8bee3fe651aff90ca9f0116383b5d0",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:8, P:9",
+    "type": "series",
+    "infoHash": "5b60ee4994d00cc4ae5efbd06f09c92da3c1045e",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:5b60ee4994d00cc4ae5efbd06f09c92da3c1045e"
+    ],
+    "title": "[SubsPlease] One Piece - 1047 (480p) [02F682B4].mkv\n[SubsPlease] One Piece - 1047 (480p) [02F682B4].mkv\n 📱SD | 💾 362.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|5b60ee4994d00cc4ae5efbd06f09c92da3c1045e",
+     "notWebReady": true
+    }
+   }
+  ]
+ },
+ "kitsu:12:1048": {
+  "streams": [
+   {
+    "name": "Nyaa.si\n S:55, P:56",
+    "type": "series",
+    "infoHash": "9ba2c2b8ac468765f6df9cf427afa6faedd4052a",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:9ba2c2b8ac468765f6df9cf427afa6faedd4052a"
+    ],
+    "title": "[SubsPlease] One Piece - 1048 (1080p) [D2E8A171].mkv\n[SubsPlease] One Piece - 1048 (1080p) [D2E8A171].mkv\n 🎥FHD | 💾 1389.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|9ba2c2b8ac468765f6df9cf427afa6faedd4052a",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:13, P:13",
+    "type": "series",
+    "infoHash": "78f44c0b79362a0a4e537d9b3de983055b6224ff",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:78f44c0b79362a0a4e537d9b3de983055b6224ff"
+    ],
+    "title": "[Judas] One Piece - 1048.mkv\n[Judas] One Piece - 1048.mkv\n | 💾 305.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|78f44c0b79362a0a4e537d9b3de983055b6224ff",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:20, P:20",
+    "type": "series",
+    "infoHash": "2a7224d2d0e2ad27dee212662ccd368e977aa4c4",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:2a7224d2d0e2ad27dee212662ccd368e977aa4c4"
+    ],
+    "title": "[SubsPlease] One Piece - 1048 (720p) [B0DA8D74].mkv\n[SubsPlease] One Piece - 1048 (720p) [B0DA8D74].mkv\n 📺HD | 💾 708.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|2a7224d2d0e2ad27dee212662ccd368e977aa4c4",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:7, P:8",
+    "type": "series",
+    "infoHash": "3bf842975ea872c41d0fb52c3dffa1e0042955d9",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:3bf842975ea872c41d0fb52c3dffa1e0042955d9"
+    ],
+    "title": "[Erai-raws] One Piece - 1048 [720p][Multiple Subtitle][8CACA971].mkv\n[Erai-raws] One Piece - 1048 [720p][Multiple Subtitle][8CACA971].mkv\n 📺HD | 💾 709.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|3bf842975ea872c41d0fb52c3dffa1e0042955d9",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:6, P:6",
+    "type": "series",
+    "infoHash": "62c163fe0b76a9f71687b7d87601c3c897908449",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:62c163fe0b76a9f71687b7d87601c3c897908449"
+    ],
+    "title": "[Naruto-Kun.Hu] One Piece - 1048 [1080p].mkv\n[Naruto-Kun.Hu] One Piece - 1048 [1080p].mkv\n 🎥FHD | 💾 305.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|62c163fe0b76a9f71687b7d87601c3c897908449",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:5, P:5",
+    "type": "series",
+    "infoHash": "548f8bca43ff979c6464d842446e385cd3a7be5d",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:548f8bca43ff979c6464d842446e385cd3a7be5d"
+    ],
+    "title": "[Valenciano] One Piece - 1048 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n[Valenciano] One Piece - 1048 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n 🎥FHD | 💾 287.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|548f8bca43ff979c6464d842446e385cd3a7be5d",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:26, P:26",
+    "type": "series",
+    "infoHash": "d521ca1bb89fd1102fe036f9626519943ca56bee",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:d521ca1bb89fd1102fe036f9626519943ca56bee"
+    ],
+    "title": "[Erai-raws] One Piece - 1048 [1080p][Multiple Subtitle][F72ADC6E].mkv\n[Erai-raws] One Piece - 1048 [1080p][Multiple Subtitle][F72ADC6E].mkv\n 🎥FHD | 💾 1390.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|d521ca1bb89fd1102fe036f9626519943ca56bee",
+     "notWebReady": true
+    }
+   }
+  ]
+ },
+ "kitsu:12:1049": {
+  "streams": [
+   {
+    "name": "Nyaa.si\n S:45, P:45",
+    "type": "series",
+    "infoHash": "dac70e00ea69a376486192f12911632888da625f",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:dac70e00ea69a376486192f12911632888da625f"
+    ],
+    "title": "[SubsPlease] One Piece - 1049 (1080p) [E9AE97ED].mkv\n[SubsPlease] One Piece - 1049 (1080p) [E9AE97ED].mkv\n 🎥FHD | 💾 1387.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|dac70e00ea69a376486192f12911632888da625f",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:7, P:7",
+    "type": "series",
+    "infoHash": "65ff8e5c848f21939e457bc639c192fc6f02877c",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:65ff8e5c848f21939e457bc639c192fc6f02877c"
+    ],
+    "title": "[ToonsHub] One Piece - 1049 (JAP 2160p x264 AAC) [Multi-Subs].mkv\n[ToonsHub] One Piece - 1049 (JAP 2160p x264 AAC) [Multi-Subs].mkv\n 🌟4k | 💾 1959.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|65ff8e5c848f21939e457bc639c192fc6f02877c",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:3, P:3",
+    "type": "series",
+    "infoHash": "64d721b3b8f393f620fb068cf560c664406b07b1",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:64d721b3b8f393f620fb068cf560c664406b07b1"
+    ],
+    "title": "[Valenciano] One Piece - 1049 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n[Valenciano] One Piece - 1049 [1080p][AV1 10bit][AAC][Multi-Sub] (Weekly).mkv\n 🎥FHD | 💾 298.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|64d721b3b8f393f620fb068cf560c664406b07b1",
+     "notWebReady": true
+    }
+   },
+   {
+    "name": "Nyaa.si\n S:13, P:13",
+    "type": "series",
+    "infoHash": "09b9cc36fc2e7fc778dedbae27425028ae94b691",
+    "fileIdx": 0,
+    "sources": [
+     "tracker:http://nyaa.tracker.wf:7777/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://exodus.desync.com:6969/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "dht:09b9cc36fc2e7fc778dedbae27425028ae94b691"
+    ],
+    "title": "[Judas] One Piece - 1049.mkv\n[Judas] One Piece - 1049.mkv\n | 💾 400.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|09b9cc36fc2e7fc778dedbae27425028ae94b691",
+     "notWebReady": true
+    }
+   }
+  ]
+ },
+ "kitsu:12:1050": {
+  "streams": [
+   {
+    "name": "The Pirate Bay\n S:1, P:1",
+    "type": "series",
+    "infoHash": "1be2b4b0314b1c787e14a2234af666d7ece79af3",
+    "fileIdx": 1,
+    "sources": [
+     "tracker:http://tracker.opentrackr.org:1337/announce",
+     "tracker:udp://tracker.auctor.tv:6969/announce",
+     "tracker:udp://opentracker.i2p.rocks:6969/announce",
+     "tracker:https://opentracker.i2p.rocks:443/announce",
+     "tracker:udp://open.demonii.com:1337/announce",
+     "tracker:udp://tracker.openbittorrent.com:6969/announce",
+     "tracker:http://tracker.openbittorrent.com:80/announce",
+     "tracker:udp://open.stealth.si:80/announce",
+     "tracker:udp://tracker.torrent.eu.org:451/announce",
+     "tracker:udp://tracker.moeking.me:6969/announce",
+     "dht:1be2b4b0314b1c787e14a2234af666d7ece79af3"
+    ],
+    "title": "One Piece - 1050 (720p)(Multiple Subtitle)(17166962)-Erai-raws[TGx]\n[Erai-raws] One Piece - 1050 [720p][Multiple Subtitle].mkv\n 📺HD | 💾 709.00 MB",
+    "behaviorHints": {
+     "bingeGroup": "Jackett|1be2b4b0314b1c787e14a2234af666d7ece79af3",
+     "notWebReady": true
+    }
+   }
+  ]
  }
 }
