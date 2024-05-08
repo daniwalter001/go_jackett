@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -185,106 +186,23 @@ func filter[T any](slice []T, cb func(T) bool) (ret []T) {
 	return ret
 }
 
-func defaultTracker() []string {
-	return []string{
-		"udp://open.stealth.si:80/announce",
-		"udp://exodus.desync.com:6969/announce",
-		"udp://tracker.cyberia.is:6969/announce",
-		"udp://tracker.opentrackr.org:1337/announce",
-		"udp://tracker.torrent.eu.org:451/announce",
-		"udp://explodie.org:6969/announce",
-		"udp://tracker.birkenwald.de:6969/announce",
-		"udp://tracker.moeking.me:6969/announce",
-		"udp://ipv4.tracker.harry.lu:80/announce",
-		"udp://odd-hd.fr:6969/announce",
-		"udp://tracker.jamesthebard.net:6969/announce",
-		"udp://tracker.picotorrent.one:6969/announce",
-		"udp://tracker.0x7c0.com:6969/announce",
-		"udp://oh.fuuuuuck.com:6969/announce",
-		"udp://ttk2.nbaonlineservice.com:6969/announce",
-		"udp://open.demonii.com:1337/announce",
-		"udp://tracker.tiny-vps.com:6969/announce",
-		"udp://p4p.arenabg.com:1337/announce",
-		"udp://tracker.dler.org:6969/announce",
-		"udp://movies.zsw.ca:6969/announce",
-		"udp://tracker.openbittorrent.com:6969/announce",
-		"udp://uploads.gamecoast.net:6969/announce",
-		"udp://ipv6.tracker.harry.lu:80/announce",
-		"udp://tracker1.bt.moack.co.kr:80/announce",
-		"udp://opentracker.i2p.rocks:6969/announce",
-		"udp://eddie4.nl:6969/announce",
-		"udp://bt1.archive.org:6969/announce",
-		"udp://tracker.swateam.org.uk:2710/announce",
-		"http://tracker.openbittorrent.com:80/announce",
-		"http://tracker.opentrackr.org:1337/announce",
-		"https://tracker1.520.jp:443/announce",
-		"https://tracker.tamersunion.org:443/announce",
-		"https://tracker.imgoingto.icu:443/announce",
-		"http://nyaa.tracker.wf:7777/announce",
-		"udp://tracker2.dler.org:80/announce",
-		"udp://tracker.theoks.net:6969/announce",
-		"udp://tracker.dump.cl:6969/announce",
-		"udp://tracker.bittor.pw:1337/announce",
-		"udp://tracker.4.babico.name.tr:3131/announce",
-		"udp://sanincode.com:6969/announce",
-		"udp://retracker01-msk-virt.corbina.net:80/announce",
-		"udp://private.anonseed.com:6969/announce",
-		"udp://open.free-tracker.ga:6969/announce",
-		"udp://isk.richardsw.club:6969/announce",
-		"udp://htz3.noho.st:6969/announce",
-		"udp://epider.me:6969/announce",
-		"udp://bt.ktrackers.com:6666/announce",
-		"udp://acxx.de:6969/announce",
-		"udp://aarsen.me:6969/announce",
-		"udp://6ahddutb1ucc3cp.ru:6969/announce",
-		"udp://yahor.of.by:6969/announce",
-		"udp://v2.iperson.xyz:6969/announce",
-		"udp://tracker1.myporn.club:9337/announce",
-		"udp://tracker.therarbg.com:6969/announce",
-		"udp://tracker.qu.ax:6969/announce",
-		"udp://tracker.publictracker.xyz:6969/announce",
-		"udp://tracker.netmap.top:6969/announce",
-		"udp://tracker.farted.net:6969/announce",
-		"udp://tracker.cubonegro.lol:6969/announce",
-		"udp://tracker.ccp.ovh:6969/announce",
-		"udp://thouvenin.cloud:6969/announce",
-		"udp://thinking.duckdns.org:6969/announce",
-		"udp://tamas3.ynh.fr:6969/announce",
-		"udp://ryjer.com:6969/announce",
-		"udp://run.publictracker.xyz:6969/announce",
-		"udp://run-2.publictracker.xyz:6969/announce",
-		"udp://public.tracker.vraphim.com:6969/announce",
-		"udp://public.publictracker.xyz:6969/announce",
-		"udp://public-tracker.cf:6969/announce",
-		"udp://opentracker.io:6969/announce",
-		"udp://open.u-p.pw:6969/announce",
-		"udp://open.dstud.io:6969/announce",
-		"udp://new-line.net:6969/announce",
-		"udp://moonburrow.club:6969/announce",
-		"udp://mail.segso.net:6969/announce",
-		"udp://free.publictracker.xyz:6969/announce",
-		"udp://carr.codes:6969/announce",
-		"udp://bt2.archive.org:6969/announce",
-		"udp://6.pocketnet.app:6969/announce",
-		"udp://1c.premierzal.ru:6969/announce",
-		"udp://tracker.t-rb.org:6969/announce",
-		"udp://tracker.srv00.com:6969/announce",
-		"udp://tracker.artixlinux.org:6969/announce",
-		"udp://tracker-udp.gbitt.info:80/announce",
-		"udp://torrents.artixlinux.org:6969/announce",
-		"udp://psyco.fr:6969/announce",
-		"udp://mail.artixlinux.org:6969/announce",
-		"udp://lloria.fr:6969/announce",
-		"udp://fh2.cmp-gaming.com:6969/announce",
-		"udp://concen.org:6969/announce",
-		"udp://boysbitte.be:6969/announce",
-		"udp://aegir.sexy:6969/announce"}
-}
+func getServers() []types.Server {
+	var servers []types.Server
+	readFile, errServer := os.Open("./assets/servers.db")
 
-// fmt.Println("------------start----------------")
-// fmt.Printf("Name:%s\n", el.DisplayPath())
-// fmt.Printf("containEandS:%t\n", containEandS(el.DisplayPath(), strconv.Itoa(s), strconv.Itoa(e), abs == "true", strconv.Itoa(abs_season), strconv.Itoa(abs_episode)))
-// fmt.Printf("containE_S:%t\n", containE_S(el.DisplayPath(), strconv.Itoa(s), strconv.Itoa(e), abs == "true", strconv.Itoa(abs_season), strconv.Itoa(abs_episode)))
-// fmt.Printf("containsAbsoluteE:%t\n", containsAbsoluteE(el.DisplayPath(), strconv.Itoa(s), strconv.Itoa(e), abs == "true", strconv.Itoa(s), strconv.Itoa(e)))
-// fmt.Printf("containsAbsoluteE_:%t\n", containsAbsoluteE_(el.DisplayPath(), strconv.Itoa(s), strconv.Itoa(e), abs == "true", strconv.Itoa(s), strconv.Itoa(e)))
-// fmt.Println("------------end----------------")
+	if errServer != nil {
+		fmt.Println("Cant load server file")
+		fmt.Println(errServer)
+	}
+	fileScanner := bufio.NewScanner(readFile)
+	fileScanner.Split(bufio.ScanLines)
+
+	for fileScanner.Scan() {
+		servers = append(servers, types.Server{
+			Host:   strings.Split(fileScanner.Text(), "|")[0],
+			ApiKey: strings.Split(fileScanner.Text(), "|")[1],
+		})
+	}
+
+	return servers
+}

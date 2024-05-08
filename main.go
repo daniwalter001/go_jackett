@@ -330,7 +330,7 @@ func main() {
 									return strings.Contains(strings.ToLower(t.Path), strings.ToLower(ell.DisplayPath()))
 								})
 							}
-							if selectedIndex == -1 || len(links) < selectedIndex {
+							if selectedIndex == -1 || len(links) <= selectedIndex {
 								selectedIndex = 0
 							}
 							if len(links) > 0 {

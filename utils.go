@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
 	"time"
@@ -116,8 +117,10 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetEscapeHTML(false)
 
-	host := "http://37.187.141.48:9117"
-	apiKey := "10f9a9qd7wtq1lxutduyxz33zprl2gri"
+	servers := getServers()
+	randomInt := rand.Intn(len(servers))
+	host := servers[randomInt].Host
+	apiKey := servers[randomInt].ApiKey
 	//
 	category := "5000"
 	if type_ == "movie" {
@@ -193,7 +196,7 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 		return item
 	}
 
-	request := fiber.Get(url).Timeout(5 * time.Second)
+	request := fiber.Get(url).Timeout(15 * time.Second)
 
 	status, data, err := request.Bytes()
 
@@ -216,7 +219,6 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 		os.Remove(file.Name())
 		return item
 	}
-	// _, fileError := io.Copy(file, response.Body)
 
 	fileError := os.WriteFile(file.Name(), data, 0666)
 
@@ -226,7 +228,6 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 		os.Remove(file.Name())
 		return item
 	}
-	// fmt.Printf("Name2: %s\n", file.Name())
 
 	t, addErr := c.AddTorrentFromFile(file.Name())
 	// <-t.GotInfo()
@@ -239,7 +240,6 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 	}
 	// fmt.Printf("6Removing...%s\n", file.Name())
 	os.Remove(file.Name())
-	// fmt.Println(file.Name())
 
 	var files []torrent.File
 
@@ -265,22 +265,18 @@ func readTorrentFromMagnet(item types.ItemsParsed) types.ItemsParsed {
 		return item
 	}
 
-	// <-t.GotInfo()
-
 	ed := make(chan string, 1)
 	go func() {
 		<-t.GotInfo()
-		ed <- "okok"
+		ed <- "done"
 	}()
 
 	select {
 	case <-time.After(15 * time.Second):
-		// fmt.Printf("%s => %s\n", item.Title, "Timeout1")
 		return item
 	case res := <-ed:
-		if res == "okok" {
+		if res == "done" {
 			var files []torrent.File
-			// fmt.Printf("%s =2> %d\n", item.Title, len(t.Files()))
 			for i := 0; i < len(t.Files()); i++ {
 				file := t.Files()[i]
 				files = append(files, *file)
