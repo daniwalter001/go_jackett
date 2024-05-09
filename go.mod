@@ -1,6 +1,6 @@
 module github.com/daniwalter001/jackett_fiber
 
-// +heroku goVersion go1.22.0
+// +heroku goVersion go1.15
 go 1.22.0
 
 require github.com/gofiber/fiber/v2 v2.52.4
