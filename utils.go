@@ -21,11 +21,13 @@ func getMeta(id string, type_ string) (string, string) {
 	enc.SetEscapeHTML(false)
 
 	splitedId := strings.Split(id, ":")
-	api := "https://v3-cinemeta.strem.io/meta/" + type_ + "/" + splitedId[0] + ".json"
+	// api := "https://v3-cinemeta.strem.io/meta/" + type_ + "/" + splitedId[0] + ".json"
+	api := "https://cinemeta-live.strem.io/meta/" + type_ + "/" + splitedId[0] + ".json"
 	fmt.Println(api)
 	request := fiber.Get(api)
 
 	status, data, err := request.Bytes()
+
 	if err != nil {
 		panic(err)
 	}
@@ -41,10 +43,20 @@ func getMeta(id string, type_ string) (string, string) {
 	jsonErr := json.Unmarshal(data, &res)
 
 	if jsonErr != nil {
-		panic(jsonErr)
+		return "", ""
 	}
 
-	return *res.Meta.Name, *res.Meta.Year
+	var year string
+
+	if res.Meta.Year != nil {
+		year = *res.Meta.Year
+	} else if res.Meta.ReleaseInfo != nil {
+		year = (*res.Meta.ReleaseInfo)[:4]
+	} else {
+		year = ""
+	}
+
+	return *res.Meta.Name, year
 }
 
 func getImdbFromKitsu(id string) []string {
