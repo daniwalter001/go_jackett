@@ -114,13 +114,13 @@ func main() {
 		var results []types.ItemsParsed
 
 		wg := sync.WaitGroup{}
-		l := 4
+		l := 5
 		if type_ == "series" {
 			if abs == "true" {
-				l = l + 1
+				l = l + 2
 			}
 			if s == 1 {
-				l = l + 1
+				l = l + 2
 			}
 		} else if type_ == "movie" {
 			l = 1
@@ -146,7 +146,10 @@ func main() {
 				defer wg.Done()
 				results = append(results, fetchTorrent(fmt.Sprintf("%s integrale", name), type_)...)
 			}()
-
+			go func() {
+				defer wg.Done()
+				results = append(results, fetchTorrent(fmt.Sprintf("%s batch", name), type_)...)
+			}()
 			go func() {
 				defer wg.Done()
 				results = append(results, fetchTorrent(fmt.Sprintf("%s complet", name), type_)...)
@@ -162,12 +165,21 @@ func main() {
 					defer wg.Done()
 					results = append(results, fetchTorrent(fmt.Sprintf("%s E%02d", name, e), type_)...)
 				}()
+				go func() {
+					defer wg.Done()
+					results = append(results, fetchTorrent(fmt.Sprintf("%s %02d", name, e), type_)...)
+				}()
 			}
 
 			if abs == "true" {
 				go func() {
 					defer wg.Done()
 					results = append(results, fetchTorrent(fmt.Sprintf("%s E%03d", name, abs_episode), type_)...)
+				}()
+
+				go func() {
+					defer wg.Done()
+					results = append(results, fetchTorrent(fmt.Sprintf("%s %03d", name, abs_episode), type_)...)
 				}()
 			}
 		}
@@ -212,7 +224,10 @@ func main() {
 				} else {
 					r = readTorrent(item)
 				}
-				parsedTorrentFiles = append(parsedTorrentFiles, r)
+
+				if len(r.TorrentData) != 0 {
+					parsedTorrentFiles = append(parsedTorrentFiles, r)
+				}
 			}(results[i])
 		}
 		wg.Wait()
@@ -256,6 +271,10 @@ func main() {
 
 		var ttttt types.StreamMeta
 
+		parsedTorrentFiles = filter[types.ItemsParsed](parsedTorrentFiles, func(ip types.ItemsParsed) bool {
+			return len(ip.TorrentData) != 0
+		})
+
 		fmt.Printf("Response %d\n", len(parsedTorrentFiles))
 
 		fmt.Println("Parsing that shit")
@@ -266,7 +285,6 @@ func main() {
 		nbreAdded := 0
 
 		for _, el := range parsedTorrentFiles {
-			// fmt.Println(PrettyPrint(el.TorrentData))
 			go func(item types.ItemsParsed) {
 				defer wg.Done()
 				for _, ell := range el.TorrentData {
@@ -313,6 +331,7 @@ func main() {
 					selected, err := selectFilefromRD(folderId, "all")
 					if folderId != "" && selected {
 						torrentDetails, err_ := getTorrentInfofromRD(folderId)
+						//fmt.Println((PrettyPrint(torrentDetails)))
 						if err.Error != "" {
 							fmt.Println("Error")
 							fmt.Println(err_.Error)
@@ -347,9 +366,9 @@ func main() {
 					}
 
 					if len(details) > 0 {
-						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.Torrent().Name(), ell.DisplayPath(), getQuality(ell.DisplayPath()), getSize(int(ell.Length()))), Name: fmt.Sprintf("%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.Torrent().InfoHash().String()), NotWebReady: true}, URL: details[0].Download})
+						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.Torrent().Name(), ell.DisplayPath(), getQuality(ell.DisplayPath()), getSize(int(ell.Length()))), Name: fmt.Sprintf("RD.%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.Torrent().InfoHash().String()), NotWebReady: true}, URL: details[0].Download})
 
-						// ========================== RD =============================
+						// ========================== END RD =============================
 					} else if os.Getenv("PUBLIC") == "1" {
 						announceList := make([]string, 0)
 						for i := 0; i < len(ell.Torrent().Metainfo().AnnounceList); i++ {

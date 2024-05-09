@@ -128,7 +128,14 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	}
 	query = strings.ReplaceAll(query, " ", "+")
 
-	api := fmt.Sprintf("%s/api/v2.0/indexers/yggtorrent/results/torznab/api?apikey=%s&cat=%s&q=%s&cache=false", host, apiKey, category, query)
+	override := os.Getenv("OVERRIDE_API_URL")
+	api := fmt.Sprintf("%s/api/v2.0/indexers/yggtorrent/results/torznab/api?cache=false&cat=%s&apikey=%s&q=%s", host, category, apiKey, query)
+
+	if override != "" {
+		api = fmt.Sprintf("%s%s&apikey=%s&q=%s", host, override, apiKey, query)
+	}
+
+	fmt.Println(api)
 
 	request := fiber.Get(api)
 
