@@ -41,7 +41,23 @@ func main() {
 	})
 
 	app.Get("/manifest.json", func(c *fiber.Ctx) error {
-		a := types.StreamManifest{ID: "strem.go.beta", Description: "Random Golang version on stremio Addon", Name: "GoDon", Resources: []string{"stream"}, Version: "1.0.9", Types: []string{"movie", "series", "anime"}, Logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Golang.png"}
+		a := types.StreamManifest{ID: "strem.go.beta", Description: "Random Golang version on stremio Addon", Name: "GoDon", Resources: []string{"stream"}, Version: "1.0.9", Types: []string{"movie", "series", "anime"}, Logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Golang.png", IdPrefixes: []string{"tt", "kitsu"}, Catalogs: []string{}}
+
+		// {
+		// 	"catalogs": [  ],
+		// 	"description": "VOD from Google Drive.",
+		// 	"id": "hy.stremio.googledrive",
+		// 	"logo": "https://raw.githubusercontent.com/mik25/stremio-greek-tv/master/pngwing.com.png",
+		// 	"name": "GDrive Reborn",
+		// 	"resources": [
+		// 	  "stream"
+		// 	],
+		// 	"types": [
+		// 	  "movie",
+		// 	  "series"
+		// 	],
+		// 	"version": "2.0.0"
+		//   }
 
 		u, err := json.Marshal(a)
 		if err != nil {

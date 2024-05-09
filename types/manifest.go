@@ -6,7 +6,8 @@ type StreamManifest struct {
 	Logo        string   `json:"logo"`
 	Name        string   `json:"name"`
 	Resources   []string `json:"resources"`
-	// IdPrefixes  []string `json:"idPrefixes"`
-	Types   []string `json:"types"`
-	Version string   `json:"version"`
+	IdPrefixes  []string `json:"idPrefixes"`
+	Types       []string `json:"types"`
+	Version     string   `json:"version"`
+	Catalogs    []string `json:"catalogs"`
 }
