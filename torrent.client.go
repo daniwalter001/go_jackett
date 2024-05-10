@@ -1,12 +1,15 @@
 package main
 
 import (
+	"os"
+
 	"github.com/anacrolix/torrent"
 )
 
 func TorrentClient() *torrent.Client {
 	config := torrent.NewDefaultClientConfig()
-	config.DataDir = "temp"
+	mydir, _ := os.Getwd()
+	config.DataDir = mydir + "temp"
 	config.ListenHost = func(network string) string { return "localhost" }
 	client, err := torrent.NewClient(config)
 

@@ -27,7 +27,9 @@ func main() {
 
 	//read and parse cache file content
 	mapCache := make(map[string]types.StreamMeta)
-	cacheFile, _ := os.ReadFile("persistence/cache.json")
+	mydir, _ := os.Getwd()
+
+	cacheFile, _ := os.ReadFile(mydir + "persistence/cache.json")
 	if len(cacheFile) > 0 {
 		json.Unmarshal(cacheFile, &mapCache)
 	}
