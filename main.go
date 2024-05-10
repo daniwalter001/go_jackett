@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"os"
 	"slices"
 	"sort"
@@ -15,17 +14,11 @@ import (
 	"github.com/daniwalter001/jackett_fiber/types"
 	"github.com/daniwalter001/jackett_fiber/types/rd"
 	"github.com/gofiber/fiber/v2"
-	"github.com/joho/godotenv"
 )
 
 func main() {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetEscapeHTML(false)
-
-	errDot := godotenv.Load("./.env")
-	if errDot != nil {
-		log.Fatalln("Error loading .env file")
-	}
 
 	//read and parse cache file content
 	mapCache := make(map[string]types.StreamMeta)
