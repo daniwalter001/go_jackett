@@ -59,7 +59,7 @@ func main() {
 	})
 
 	app.Get("/manifest.json", func(c *fiber.Ctx) error {
-		a := types.StreamManifest{ID: "strem.go.nyaa", Description: "Random Golang version on stremio Addon", Name: "GoDon Nyaa", Resources: []string{"stream"}, Version: "1.0.1", Types: []string{"movie", "series", "anime"}, Logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Golang.png", IdPrefixes: []string{"tt", "kitsu"}, Catalogs: []string{}}
+		a := types.StreamManifest{ID: "strem.go.ygg.b", Description: "Random Golang version on stremio Addon", Name: "GoDon 2", Resources: []string{"stream"}, Version: "1.0.1", Types: []string{"movie", "series", "anime"}, Logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Golang.png", IdPrefixes: []string{"tt", "kitsu"}, Catalogs: []string{}}
 
 		u, err := json.Marshal(a)
 		if err != nil {
