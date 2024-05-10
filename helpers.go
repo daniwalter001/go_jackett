@@ -188,7 +188,7 @@ func filter[T any](slice []T, cb func(T) bool) (ret []T) {
 
 func getServers() []types.Server {
 
-	mydir, _ := os.Getwd()
+	mydir := "/bin/"
 
 	var servers []types.Server
 	readFile, errServer := os.Open(mydir + "assets/servers.db")

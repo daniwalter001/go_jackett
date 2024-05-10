@@ -31,12 +31,12 @@ func main() {
 		panic(err)
 	}
 	exPath := filepath.Dir(ex)
-	fmt.Printf("Currenr: %s\n", exPath)
+	fmt.Printf("Current: %s\n", exPath)
 
 	//read and parse cache file content
 	mapCache := make(map[string]types.StreamMeta)
-	mydir, _ := os.Getwd()
 
+	mydir := "/bin/"
 	cacheFile, _ := os.ReadFile(mydir + "persistence/cache.json")
 	if len(cacheFile) > 0 {
 		json.Unmarshal(cacheFile, &mapCache)
@@ -44,7 +44,7 @@ func main() {
 
 	fmt.Println(PrettyPrint(mapCache))
 
-	listd, _ := os.ReadDir(".")
+	listd, _ := os.ReadDir("/bin")
 
 	for _, v := range listd {
 		fmt.Println(v.Name())
