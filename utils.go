@@ -220,7 +220,6 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 	torrentFile, _ := gotorrentparser.Parse(fileReader)
 
 	for _, file := range torrentFile.Files {
-		fmt.Println(file.Path[len(file.Path)-1])
 
 		files = append(files, types.TorrentFile{
 			Name:         file.Path[len(file.Path)-1],

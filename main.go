@@ -389,9 +389,8 @@ func main() {
 
 						// ========================== END RD =============================
 					} else if os.Getenv("PUBLIC") == "1" {
-						announceList := make([]string, 0)
 
-						announceList = append(ell.AnnounceList, fmt.Sprintf("dht:%s", ell.InfoHash))
+						announceList := append(ell.AnnounceList, fmt.Sprintf("dht:%s", ell.InfoHash))
 						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.TorrentName, ell.Name, getQuality(ell.Name), getSize(int(ell.Length))), Name: fmt.Sprintf("%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, InfoHash: ell.InfoHash, Sources: announceList, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, FileIdx: parsedSuitableTorrentFilesIndex[ell.Name] - 1})
 					}
 
