@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bufio"
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -186,26 +186,32 @@ func filter[T any](slice []T, cb func(T) bool) (ret []T) {
 	return ret
 }
 
+//go:embed assets/servers.db
+var servers string
+
 func getServers() []types.Server {
 
-	mydir := "/bin/"
-
+	serversArr := strings.Split(servers, "\n")
 	var servers []types.Server
-	readFile, errServer := os.Open(mydir + "assets/servers.db")
 
-	if errServer != nil {
-		fmt.Println("Cant load server file")
-		fmt.Println(errServer)
-	}
-	fileScanner := bufio.NewScanner(readFile)
-	fileScanner.Split(bufio.ScanLines)
-
-	for fileScanner.Scan() {
+	for _, line := range serversArr {
 		servers = append(servers, types.Server{
-			Host:   strings.Split(fileScanner.Text(), "|")[0],
-			ApiKey: strings.Split(fileScanner.Text(), "|")[1],
+			Host:   strings.Split(line, "|")[0],
+			ApiKey: strings.Split(line, "|")[1],
 		})
 	}
 
 	return servers
+}
+
+func createIfNotExist(path string) bool {
+	if _, err := os.Stat(path); err != nil {
+		if os.IsNotExist(err) {
+			errMkdir := os.MkdirAll(path, 0755)
+			return errMkdir == nil
+		}
+		return false
+	}
+	fmt.Printf("%s already exists\n", path)
+	return true
 }

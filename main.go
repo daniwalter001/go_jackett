@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"path/filepath"
 	"slices"
 	"sort"
 	"strconv"
@@ -26,29 +25,31 @@ func main() {
 	// 	log.Fatalln("Error loading .env file")
 	// }
 
-	ex, err := os.Executable()
-	if err != nil {
-		panic(err)
-	}
-	exPath := filepath.Dir(ex)
-	fmt.Printf("Current: %s\n", exPath)
+	fmt.Printf("Creating... %t\n", createIfNotExist("./temp"))
+	fmt.Printf("Creating... %t\n", createIfNotExist("./persistence"))
+
+	// ex, err := os.Executable()
+	// if err != nil {
+	// 	panic(err)
+	// }
+	// exPath := filepath.Dir(ex)
+	// fmt.Printf("Current: %s\n", exPath)
 
 	//read and parse cache file content
 	mapCache := make(map[string]types.StreamMeta)
 
-	mydir := "/bin/"
-	cacheFile, _ := os.ReadFile(mydir + "persistence/cache.json")
+	cacheFile, _ := os.ReadFile("persistence/cache.json")
 	if len(cacheFile) > 0 {
 		json.Unmarshal(cacheFile, &mapCache)
 	}
 
-	fmt.Println(PrettyPrint(mapCache))
+	// fmt.Println(PrettyPrint(mapCache))
 
-	listd, _ := os.ReadDir("/bin")
+	// listd, _ := os.ReadDir(".")
 
-	for _, v := range listd {
-		fmt.Println(v.Name())
-	}
+	// for _, v := range listd {
+	// 	fmt.Println(v.Name())
+	// }
 
 	app := fiber.New()
 
