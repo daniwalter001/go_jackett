@@ -20,9 +20,14 @@ func main() {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetEscapeHTML(false)
 
+	// errDot := godotenv.Load("./.env")
+	// if errDot != nil {
+	// 	log.Fatalln("Error loading .env file")
+	// }
+
 	//read and parse cache file content
 	mapCache := make(map[string]types.StreamMeta)
-	cacheFile, _ := os.ReadFile("./persistence/cache.json")
+	cacheFile, _ := os.ReadFile("persistence/cache.json")
 	if len(cacheFile) > 0 {
 		json.Unmarshal(cacheFile, &mapCache)
 	}

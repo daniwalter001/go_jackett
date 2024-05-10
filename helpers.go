@@ -188,7 +188,7 @@ func filter[T any](slice []T, cb func(T) bool) (ret []T) {
 
 func getServers() []types.Server {
 	var servers []types.Server
-	readFile, errServer := os.Open("./assets/servers.db")
+	readFile, errServer := os.Open("assets/servers.db")
 
 	if errServer != nil {
 		fmt.Println("Cant load server file")
