@@ -407,6 +407,6 @@ func main() {
 		fmt.Println("Sending that shit")
 		return c.Status(fiber.StatusOK).JSON(ttttt)
 	})
-
-	app.Listen(":3000")
+	port := os.Getenv("PORT")
+	app.Listen(fmt.Sprintf(":%s", port))
 }
