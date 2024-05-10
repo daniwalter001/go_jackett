@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bytes"
+	"encoding/base64"
 	"encoding/json"
 	"encoding/xml"
 	"fmt"
@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/anacrolix/torrent"
 	"github.com/daniwalter001/jackett_fiber/types"
 	"github.com/gofiber/fiber/v2"
-	gotorrentparser "github.com/j-muller/go-torrent-parser"
 )
 
 func getMeta(id string, type_ string) (string, string) {
@@ -194,44 +194,79 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 }
 
 func readTorrent(item types.ItemsParsed) types.ItemsParsed {
-	url := item.Link
+	url := item.MagnetURI
+	c := TorrentClient()
+	defer c.Close()
+
+	fileName := strings.ReplaceAll((strings.Split(url, "&file="))[len(strings.Split(url, "&file="))-1], "+", "_") + ".torrent"
+
+	if len(fileName) > 100 {
+		fileName = base64.StdEncoding.EncodeToString([]byte(fileName)) + ".torrent"
+
+		fileName = fileName[len(fileName)-100:]
+	}
+	// fmt.Printf("Name: %s\n", fileName)
+	file, errFile := os.Create(fmt.Sprintf("./temp/%s", fileName))
+
+	if errFile != nil {
+		fmt.Println(errFile)
+		fmt.Printf("1Removing...%s\n", file.Name())
+		os.Remove(file.Name())
+		return item
+	}
 
 	request := fiber.Get(url).Timeout(15 * time.Second)
 
 	status, data, err := request.Bytes()
 
 	if status >= 400 {
+		// fmt.Printf("1.5Removing...%d %s\n", status, file.Name())
+		os.Remove(file.Name())
 		return item
 	}
 
 	if err != nil {
 		fmt.Printf("%s\n", err)
+		// fmt.Printf("2Removing...%s\n", file.Name())
+		os.Remove(file.Name())
 		return item
 	}
 
 	if err != nil {
 		fmt.Println(err)
+		// fmt.Printf("3Removing...%s\n", file.Name())
+		os.Remove(file.Name())
 		return item
 	}
 
-	var files []types.TorrentFile
+	fileError := os.WriteFile(file.Name(), data, 0666)
 
-	fileReader := bytes.NewReader(data)
-	torrentFile, _ := gotorrentparser.Parse(fileReader)
-
-	for _, file := range torrentFile.Files {
-		fmt.Println(file.Path[len(file.Path)-1])
-
-		files = append(files, types.TorrentFile{
-			Name:         file.Path[len(file.Path)-1],
-			TorrentName:  file.Path[len(file.Path)-1],
-			Path:         "/" + file.Path[len(file.Path)-1],
-			Length:       int(file.Length),
-			AnnounceList: torrentFile.Announce,
-			InfoHash:     torrentFile.InfoHash,
-		})
+	if fileError != nil {
+		fmt.Println(fileError)
+		fmt.Printf("4Removing...%s\n", file.Name())
+		os.Remove(file.Name())
+		return item
 	}
 
+	t, addErr := c.AddTorrentFromFile(file.Name())
+	// <-t.GotInfo()
+
+	if addErr != nil {
+		fmt.Printf("Err: %s\n", addErr)
+		fmt.Printf("5Removing...%s\n", file.Name())
+		os.Remove(file.Name())
+		return item
+	}
+	// fmt.Printf("6Removing...%s\n", file.Name())
+	os.Remove(file.Name())
+
+	var files []torrent.File
+
+	for i := 0; i < len(t.Files()); i++ {
+		file := t.Files()[i]
+		files = append(files, *file)
+	}
+	// fmt.Println(PrettyPrint(files))
 	item.TorrentData = files
 
 	return item
@@ -239,8 +274,6 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 }
 
 func readTorrentFromMagnet(item types.ItemsParsed) types.ItemsParsed {
-
-	// fmt.Println(item.Link)
 
 	c := TorrentClient()
 
@@ -262,24 +295,10 @@ func readTorrentFromMagnet(item types.ItemsParsed) types.ItemsParsed {
 		return item
 	case res := <-ed:
 		if res == "done" {
-
-			var files []types.TorrentFile
+			var files []torrent.File
 			for i := 0; i < len(t.Files()); i++ {
 				file := t.Files()[i]
-				var announceList []string
-				for i := 0; i < len(file.Torrent().Metainfo().AnnounceList); i++ {
-					for j := 0; j < len(file.Torrent().Metainfo().AnnounceList[i]); j++ {
-						announceList = append(announceList, fmt.Sprintf("tracker:%s", file.Torrent().Metainfo().AnnounceList[i][j]))
-					}
-				}
-				files = append(files, types.TorrentFile{
-					Name:         file.DisplayPath(),
-					TorrentName:  file.Torrent().Name(),
-					Path:         file.Path(),
-					Length:       int(file.Length()),
-					AnnounceList: announceList,
-					InfoHash:     file.Torrent().InfoHash().String(),
-				})
+				files = append(files, *file)
 			}
 			item.TorrentData = files
 		}
