@@ -1,6 +1,8 @@
 package main
 
-import "github.com/anacrolix/torrent"
+import (
+	"github.com/anacrolix/torrent"
+)
 
 func TorrentClient() *torrent.Client {
 	config := torrent.NewDefaultClientConfig()
