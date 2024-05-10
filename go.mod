@@ -5,6 +5,8 @@ go 1.22.0
 
 require github.com/gofiber/fiber/v2 v2.52.4
 
+require github.com/zeebo/bencode v1.0.0 // indirect
+
 require (
 	github.com/RoaringBitmap/roaring v1.2.3 // indirect
 	github.com/ajwerner/btree v0.0.0-20211221152037-f427b3e689c0 // indirect
@@ -42,6 +44,7 @@ require (
 	github.com/google/uuid v1.5.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
+	github.com/j-muller/go-torrent-parser v0.0.0-20211014072822-db02b4099054
 	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/klauspost/compress v1.17.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect

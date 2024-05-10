@@ -8,6 +8,7 @@ func TorrentClient() *torrent.Client {
 	config := torrent.NewDefaultClientConfig()
 
 	// config.DataDir = "temp"
+	// config.DefaultStorage
 	config.ListenHost = func(network string) string { return "localhost" }
 	client, err := torrent.NewClient(config)
 
