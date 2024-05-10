@@ -34,6 +34,14 @@ func main() {
 		json.Unmarshal(cacheFile, &mapCache)
 	}
 
+	fmt.Println(PrettyPrint(mapCache))
+
+	listd, _ := os.ReadDir("/")
+
+	for _, v := range listd {
+		fmt.Println(v.Name())
+	}
+
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
