@@ -2,8 +2,6 @@ package types
 
 import (
 	"encoding/xml"
-
-	"github.com/anacrolix/torrent"
 )
 
 type JackettRssReponse struct {
@@ -56,11 +54,20 @@ type JackettRssReponse struct {
 }
 
 type ItemsParsed struct {
-	Tracker     string         `json:"Tracker,omitempty"`
-	Title       string         `json:"Title,omitempty"`
-	Seeders     string         `json:"Seeders,omitempty"`
-	Peers       string         `json:"Peers,omitempty"`
-	Link        string         `json:"Link,omitempty"`
-	MagnetURI   string         `json:"MagnetUri,omitempty"`
-	TorrentData []torrent.File `json:"TorrentData,omitempty"`
+	Tracker     string        `json:"Tracker,omitempty"`
+	Title       string        `json:"Title,omitempty"`
+	Seeders     string        `json:"Seeders,omitempty"`
+	Peers       string        `json:"Peers,omitempty"`
+	Link        string        `json:"Link,omitempty"`
+	MagnetURI   string        `json:"MagnetUri,omitempty"`
+	TorrentData []TorrentFile `json:"TorrentData,omitempty"`
+}
+
+type TorrentFile struct {
+	Name         string
+	TorrentName  string
+	Path         string
+	Length       int
+	AnnounceList []string
+	InfoHash     string
 }
