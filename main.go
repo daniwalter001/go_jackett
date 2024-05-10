@@ -396,5 +396,11 @@ func main() {
 		return c.Status(fiber.StatusOK).JSON(ttttt)
 	})
 
-	app.Listen(":8001")
+	port := "3000"
+
+	if os.Getenv("PORT") != "" {
+		port = os.Getenv("PORT")
+	}
+
+	app.Listen(fmt.Sprintf(":%s", port))
 }
