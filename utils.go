@@ -153,8 +153,9 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 
 	status, data, err := request.Bytes()
 	if err != nil {
-		panic(err)
+		return make([]types.ItemsParsed, 0)
 	}
+
 	fmt.Printf("Status code: %d\n", status)
 	if status >= 400 {
 		return make([]types.ItemsParsed, 0)
