@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"os"
 	"slices"
 	"sort"
@@ -23,7 +22,7 @@ func main() {
 
 	errDot := godotenv.Load("./.env")
 	if errDot != nil {
-		log.Fatalln("Error loading .env file")
+		fmt.Println("Error loading .env file")
 	}
 
 	fmt.Printf("Creating... %t\n", createIfNotExist("./temp"))
