@@ -138,7 +138,7 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	if type_ == "movie" {
 		category = "2000"
 	}
-	query = strings.ReplaceAll(query, " ", "+")
+	query = removeAccents(strings.ReplaceAll(query, " ", "+"))
 
 	override := os.Getenv("OVERRIDE_API_URL")
 	api := fmt.Sprintf("%s/api/v2.0/indexers/yggtorrent/results/torznab/api?cache=false&cat=%s&apikey=%s&q=%s", host, category, apiKey, query)
