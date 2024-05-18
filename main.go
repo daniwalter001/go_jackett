@@ -29,13 +29,6 @@ func main() {
 	fmt.Printf("Creating... %t\n", createIfNotExist("./temp"))
 	fmt.Printf("Creating... %t\n", createIfNotExist("./persistence"))
 
-	// ex, err := os.Executable()
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// exPath := filepath.Dir(ex)
-	// fmt.Printf("Current: %s\n", exPath)
-
 	//read and parse cache file content
 	mapCache := make(map[string]types.StreamMeta)
 
@@ -43,14 +36,6 @@ func main() {
 	if len(cacheFile) > 0 {
 		json.Unmarshal(cacheFile, &mapCache)
 	}
-
-	// fmt.Println(PrettyPrint(mapCache))
-
-	// listd, _ := os.ReadDir(".")
-
-	// for _, v := range listd {
-	// 	fmt.Println(v.Name())
-	// }
 
 	app := fiber.New()
 
@@ -117,15 +102,6 @@ func main() {
 				abs = tmp[5]
 			}
 		}
-
-		// fmt.Println("----------------------------")
-		// fmt.Println(tt)
-		// fmt.Println(strconv.Itoa(s))
-		// fmt.Println(strconv.Itoa(e))
-		// fmt.Println(abs)
-		// fmt.Println(strconv.Itoa(abs_season))
-		// fmt.Println(strconv.Itoa(abs_episode))
-		// fmt.Println("----------------------------")
 
 		name, year := getMeta(tt, type_)
 
@@ -221,10 +197,6 @@ func main() {
 		if len(results) > maxRes {
 			results = results[:maxRes]
 		}
-
-		// for index, el := range results {
-		// 	fmt.Printf("%d. %s => %s\n", index, el.MagnetURI, el.Seeders)
-		// }
 
 		fmt.Printf("Retenus:%d\n", len(results))
 
