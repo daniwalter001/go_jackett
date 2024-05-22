@@ -82,7 +82,15 @@ func main() {
 		streams, err := rdClient.JSONGet(ctx, id, "$").Result()
 		if err == nil && streams != "" {
 			fmt.Printf("Sending that %s shit from cache\n", id)
-			return c.Status(fiber.StatusOK).SendString(streams)
+			var cachedStreams []types.StreamMeta
+			errJson := json.Unmarshal([]byte(streams), &cachedStreams)
+			if errJson != nil {
+				fmt.Println(errJson)
+				return c.Status(fiber.StatusNotFound).SendString("lol")
+			} else if len(cachedStreams) > 0 {
+				fmt.Printf("Sent from cache\n", id)
+				return c.Status(fiber.StatusOK).JSON(cachedStreams[len(cachedStreams)-1])
+			}
 		}
 
 		type_ := c.Params("type")
@@ -107,15 +115,6 @@ func main() {
 				abs = tmp[5]
 			}
 		}
-
-		// fmt.Println("----------------------------")
-		// fmt.Println(tt)
-		// fmt.Println(strconv.Itoa(s))
-		// fmt.Println(strconv.Itoa(e))
-		// fmt.Println(abs)
-		// fmt.Println(strconv.Itoa(abs_season))
-		// fmt.Println(strconv.Itoa(abs_episode))
-		// fmt.Println("----------------------------")
 
 		name, year := getMeta(tt, type_)
 
@@ -379,9 +378,7 @@ func main() {
 
 						// ========================== END RD =============================
 					} else if os.Getenv("PUBLIC") == "1" {
-						announceList := make([]string, 0)
-
-						announceList = append(ell.AnnounceList, fmt.Sprintf("dht:%s", ell.InfoHash))
+						announceList := append(ell.AnnounceList, fmt.Sprintf("dht:%s", ell.InfoHash))
 						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.TorrentName, ell.Name, getQuality(ell.Name), getSize(int(ell.Length))), Name: fmt.Sprintf("%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, InfoHash: ell.InfoHash, Sources: announceList, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, FileIdx: parsedSuitableTorrentFilesIndex[ell.Name] - 1})
 					}
 
