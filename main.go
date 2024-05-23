@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -10,6 +11,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/anacrolix/torrent"
 	"github.com/daniwalter001/jackett_fiber/types"
@@ -21,17 +23,22 @@ import (
 func main() {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetEscapeHTML(false)
+	ctx := context.Background()
 
 	errDot := godotenv.Load("./.env")
 	if errDot != nil {
 		log.Fatalln("Error loading .env file")
 	}
 
-	//read and parse cache file content
-	mapCache := make(map[string]types.StreamMeta)
-	cacheFile, _ := os.ReadFile("./persistence/cache.json")
-	if len(cacheFile) > 0 {
-		json.Unmarshal(cacheFile, &mapCache)
+	//create redis client instance
+	rdClient := RedisClient()
+	status, errS := rdClient.Ping(ctx).Result()
+	if errS != nil {
+		fmt.Print("Error: ")
+		fmt.Println(errS.Error())
+	} else {
+		fmt.Print("OK redis: ")
+		fmt.Println(status)
 	}
 
 	app := fiber.New()
@@ -87,10 +94,19 @@ func main() {
 		id = strings.ReplaceAll(id, "%3A", ":")
 
 		//Reading the cache
-		streams, exists := mapCache[id]
-		if exists {
+		//Reading the cache
+		streams, err := rdClient.JSONGet(ctx, id, "$").Result()
+		if err == nil && streams != "" {
 			fmt.Printf("Sending that %s shit from cache\n", id)
-			return c.Status(fiber.StatusOK).JSON(streams)
+			var cachedStreams []types.StreamMeta
+			errJson := json.Unmarshal([]byte(streams), &cachedStreams)
+			if errJson != nil {
+				fmt.Println(errJson)
+				return c.Status(fiber.StatusNotFound).SendString("lol")
+			} else if len(cachedStreams) > 0 {
+				fmt.Printf("Sent from cache %s\n", id)
+				return c.Status(fiber.StatusOK).JSON(cachedStreams[len(cachedStreams)-1])
+			}
 		}
 
 		type_ := c.Params("type")
@@ -403,9 +419,13 @@ func main() {
 		wg.Wait()
 
 		if len(ttttt.Streams) > 0 {
-			mapCache[id] = ttttt
-			toFile, _ := json.MarshalIndent(mapCache, "", " ")
-			os.WriteFile("./persistence/cache.json", toFile, 0666)
+			jsonBytes, errttt := json.Marshal(ttttt)
+			if errttt == nil {
+				_, errrrr := rdClient.JSONSet(ctx, id, "$", jsonBytes).Result()
+				if errrrr == nil {
+					rdClient.Expire(ctx, id, time.Hour*24*7).Result()
+				}
+			}
 		}
 
 		fmt.Println("Sending that shit")
