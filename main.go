@@ -76,10 +76,19 @@ func main() {
 		id = strings.ReplaceAll(id, "%3A", ":")
 
 		//Reading the cache
+		//Reading the cache
 		streams, err := rdClient.JSONGet(ctx, id, "$").Result()
 		if err == nil && streams != "" {
 			fmt.Printf("Sending that %s shit from cache\n", id)
-			return c.Status(fiber.StatusOK).SendString(streams)
+			var cachedStreams []types.StreamMeta
+			errJson := json.Unmarshal([]byte(streams), &cachedStreams)
+			if errJson != nil {
+				fmt.Println(errJson)
+				return c.Status(fiber.StatusNotFound).SendString("lol")
+			} else if len(cachedStreams) > 0 {
+				fmt.Printf("Sent from cache %s\n", id)
+				return c.Status(fiber.StatusOK).JSON(cachedStreams[len(cachedStreams)-1])
+			}
 		}
 
 		type_ := c.Params("type")
@@ -379,7 +388,7 @@ func main() {
 			if errttt == nil {
 				_, errrrr := rdClient.JSONSet(ctx, id, "$", jsonBytes).Result()
 				if errrrr == nil {
-					rdClient.Expire(ctx, id, time.Hour*24*14).Result()
+					rdClient.Expire(ctx, id, time.Hour*24*7).Result()
 				}
 			}
 		}
