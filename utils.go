@@ -29,7 +29,8 @@ func getMeta(id string, type_ string) (string, string) {
 	status, data, err := request.Bytes()
 
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		return "", ""
 	}
 
 	fmt.Printf("Status code: %d\n", status)

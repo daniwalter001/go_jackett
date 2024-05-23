@@ -116,6 +116,10 @@ func main() {
 
 		name, year := getMeta(tt, type_)
 
+		if name == "" {
+			return c.Status(fiber.StatusNotFound).SendString("lol")
+		}
+
 		var results []types.ItemsParsed
 
 		wg := sync.WaitGroup{}
