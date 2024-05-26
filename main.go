@@ -88,7 +88,7 @@ func main() {
 				fmt.Println(errJson)
 				return c.Status(fiber.StatusNotFound).SendString("lol")
 			} else if len(cachedStreams) > 0 {
-				fmt.Printf("Sent from cache\n", id)
+				fmt.Printf("Sent %s from cache \n", id)
 				return c.Status(fiber.StatusOK).JSON(cachedStreams[len(cachedStreams)-1])
 			}
 		}
