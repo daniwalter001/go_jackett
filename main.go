@@ -21,14 +21,14 @@ import (
 func main() {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetEscapeHTML(false)
-	var ctx = context.Background()
+	ctx := context.Background()
 
 	errDot := godotenv.Load("./.env")
 	if errDot != nil {
 		fmt.Println("Error loading .env file")
 	}
 
-	//create redis client instance
+	// create redis client instance
 	rdClient := RedisClient()
 	status, errS := rdClient.Ping(ctx).Result()
 	if errS != nil {
@@ -38,6 +38,8 @@ func main() {
 		fmt.Print("OK redis: ")
 		fmt.Println(status)
 	}
+
+	fmt.Println("test test")
 
 	app := fiber.New()
 
@@ -75,8 +77,8 @@ func main() {
 		id := c.Params("id")
 		id = strings.ReplaceAll(id, "%3A", ":")
 
-		//Reading the cache
-		//Reading the cache
+		// Reading the cache
+		// Reading the cache
 		streams, err := rdClient.JSONGet(ctx, id, "$").Result()
 		if err == nil && streams != "" {
 			fmt.Printf("Sending that %s shit from cache\n", id)
@@ -239,7 +241,7 @@ func main() {
 
 		var parsedSuitableTorrentFiles []types.TorrentFile
 		// var parsedSuitableTorrentFilesIndex = make([]int, len(parsedTorrentFiles))
-		var parsedSuitableTorrentFilesIndex = make(map[string]int)
+		parsedSuitableTorrentFilesIndex := make(map[string]int)
 
 		for index, el := range parsedTorrentFiles {
 			parsedSuitableTorrentFiles = make([]types.TorrentFile, 0)
@@ -337,7 +339,7 @@ func main() {
 					selected, err := selectFilefromRD(folderId, "all")
 					if folderId != "" && selected {
 						torrentDetails, err_ := getTorrentInfofromRD(folderId)
-						//fmt.Println((PrettyPrint(torrentDetails)))
+						// fmt.Println((PrettyPrint(torrentDetails)))
 						if err.Error != "" {
 							fmt.Println("Error")
 							fmt.Println(err_.Error)
