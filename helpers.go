@@ -151,15 +151,14 @@ func getSize(size int) string {
 
 	size_ := "💾 "
 
-	if size/gb > 1 {
-		size_ = size_ + fmt.Sprintf("%.2f GB", float32(size/gb))
-	} else if size/mb > 1 {
-		size_ = size_ + fmt.Sprintf("%.2f MB", float32(size/mb))
+	if size/gb >= 1 {
+		size_ = size_ + fmt.Sprintf("%.2f GB", float64(size)/float64(gb))
+	} else if size/mb >= 1 {
+		size_ = size_ + fmt.Sprintf("%.2f MB", float64(size)/float64(mb))
 	} else {
-		size_ = size_ + fmt.Sprintf("%.2f KB", float32(size/kb))
+		size_ = size_ + fmt.Sprintf("%.2f KB", float64(size)/float64(kb))
 	}
 	return size_
-
 }
 
 func removeDuplicates(strList []types.ItemsParsed) []types.ItemsParsed {
