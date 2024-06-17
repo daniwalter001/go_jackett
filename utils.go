@@ -129,6 +129,8 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	enc := json.NewEncoder(os.Stdout)
 	enc.SetEscapeHTML(false)
 
+	var parsedItems []types.ItemsParsed
+
 	servers := getServers()
 	randomInt := rand.Intn(len(servers))
 	host := servers[randomInt].Host
@@ -153,8 +155,9 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 
 	status, data, err := request.Bytes()
 	if err != nil {
-		panic(err)
+		return make([]types.ItemsParsed, 0)
 	}
+
 	fmt.Printf("Status code: %d\n", status)
 	if status >= 400 {
 		return make([]types.ItemsParsed, 0)
@@ -165,11 +168,10 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	xmlErr := xml.Unmarshal(data, &res)
 
 	if xmlErr != nil {
-		panic(xmlErr)
+		return make([]types.ItemsParsed, 0)
 	}
 
 	items := res.Channel.Item
-	var parsedItems []types.ItemsParsed
 	for i := 0; i < len(items); i++ {
 		var a types.ItemsParsed
 		a.Title = items[i].Title
@@ -187,8 +189,6 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 		}
 		parsedItems = append(parsedItems, a)
 	}
-
-	// fmt.Println(PrettyPrint(parsedItems))
 
 	return parsedItems
 }
