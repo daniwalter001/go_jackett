@@ -19,10 +19,6 @@ var keys = []string{
 	"T5Y37CBYWLSOR7DUGM4TWHCEI5FDJ63H2JIBMRGTZHOURSDWI3ZQ",
 	"O7KPXFUDOMAH4CAXNOKEDWSONCQKPLGXAYH2CPTEY2S4WDO5SLYQ"}
 
-func getApiKey() string {
-	return keys[rand.Intn(len(keys))]
-}
-
 var rdApikey = keys[rand.Intn(len(keys))]
 
 func bearer() string {

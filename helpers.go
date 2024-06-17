@@ -132,18 +132,6 @@ func getQuality(name string) string {
 	return ""
 }
 
-// function getSize(size) {
-// 	var gb = 1024 * 1024 * 1024;
-// 	var mb = 1024 * 1024;
-
-// 	return (
-// 	  "💾 " +
-// 	  (size / gb > 1
-// 		? `${(size / gb).toFixed(2)} GB`
-// 		: `${(size / mb).toFixed(2)} MB`)
-// 	);
-//   }
-
 func getSize(size int) string {
 	gb := 1024 * 1024 * 1024
 	mb := 1024 * 1024
