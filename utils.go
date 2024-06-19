@@ -68,7 +68,7 @@ func getImdbFromKitsu(id string) []string {
 	request := fiber.Get(api)
 	status, data, err := request.Bytes()
 	if err != nil {
-		panic(err)
+		return make([]string, 0)
 	}
 
 	fmt.Printf("Status code: %d\n", status)
