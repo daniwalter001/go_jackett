@@ -197,6 +197,8 @@ func getServers() []types.Server {
 	serversArr := strings.Split(servers, "\n")
 	var servers []types.Server
 
+	fmt.Println(PrettyPrint(serversArr))
+
 	for _, line := range serversArr {
 		servers = append(servers, types.Server{
 			Host:   strings.Split(line, "|")[0],
