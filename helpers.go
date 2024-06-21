@@ -197,13 +197,14 @@ func getServers() []types.Server {
 	serversArr := strings.Split(servers, "\n")
 	var servers []types.Server
 
-	fmt.Println(PrettyPrint(serversArr))
-
 	for _, line := range serversArr {
-		servers = append(servers, types.Server{
+		if strings.Contains(line, "|"){
+			servers = append(servers, types.Server{
 			Host:   strings.Split(line, "|")[0],
 			ApiKey: strings.Split(line, "|")[1],
-		})
+			})
+		}
+		
 	}
 
 	return servers
