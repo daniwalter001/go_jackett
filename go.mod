@@ -3,7 +3,7 @@ module github.com/daniwalter001/jackett_fiber
 // +heroku goVersion go1.21
 go 1.22
 
-require github.com/gofiber/fiber/v2 v2.52.4
+require github.com/gofiber/fiber/v2 v2.52.5
 
 require github.com/zeebo/bencode v1.0.0 // indirect
 
