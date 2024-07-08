@@ -65,6 +65,7 @@ func getImdbFromKitsu(id string) []string {
 
 	splitedId := strings.Split(id, ":")
 	api := "https://anime-kitsu.strem.fun/meta/anime/" + splitedId[0] + ":" + splitedId[1] + ".json"
+	fmt.Println(api)
 	request := fiber.Get(api)
 	status, data, err := request.Bytes()
 	if err != nil {

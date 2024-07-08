@@ -121,6 +121,11 @@ func main() {
 
 		fmt.Println(tmp)
 
+		if len(tmp) == 0 {
+			return c.Status(fiber.StatusNotFound).SendString("No Meta")
+
+		}
+
 		tt = tmp[0]
 		if len(tmp) > 1 {
 			s, _ = strconv.Atoi(tmp[1])
@@ -146,11 +151,11 @@ func main() {
 		var results []types.ItemsParsed
 
 		wg := sync.WaitGroup{}
-		l := 5
+		l := 4
 		if type_ == "series" {
-			if abs == "true" {
-				l = l + 2
-			}
+			// if abs == "true" {
+			// 	l = l + 2
+			// }
 			if s == 1 {
 				l = l + 2
 			}
@@ -178,10 +183,10 @@ func main() {
 				defer wg.Done()
 				results = append(results, fetchTorrent(fmt.Sprintf("%s integrale", name), type_)...)
 			}()
-			go func() {
-				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s batch", name), type_)...)
-			}()
+			// go func() {
+			// 	defer wg.Done()
+			// 	results = append(results, fetchTorrent(fmt.Sprintf("%s batch", name), type_)...)
+			// }()
 			go func() {
 				defer wg.Done()
 				results = append(results, fetchTorrent(fmt.Sprintf("%s complet", name), type_)...)
@@ -204,15 +209,15 @@ func main() {
 			}
 
 			if abs == "true" {
-				go func() {
-					defer wg.Done()
-					results = append(results, fetchTorrent(fmt.Sprintf("%s E%03d", name, abs_episode), type_)...)
-				}()
+				// go func() {
+				// 	defer wg.Done()
+				// 	results = append(results, fetchTorrent(fmt.Sprintf("%s E%03d", name, abs_episode), type_)...)
+				// }()
 
-				go func() {
-					defer wg.Done()
-					results = append(results, fetchTorrent(fmt.Sprintf("%s %03d", name, abs_episode), type_)...)
-				}()
+				// go func() {
+				// 	defer wg.Done()
+				// 	results = append(results, fetchTorrent(fmt.Sprintf("%s %03d", name, abs_episode), type_)...)
+				// }()
 			}
 		}
 
