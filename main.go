@@ -291,7 +291,7 @@ func main() {
 
 		nbreAdded := 0
 
-		for _, el := range parsedTorrentFiles {
+		for iindex, el := range parsedTorrentFiles {
 			go func(item types.ItemsParsed) {
 				defer wg.Done()
 				for _, ell := range el.TorrentData {
@@ -326,6 +326,7 @@ func main() {
 					availableCheck = len(v_) > 0
 
 					if availableCheck || nbreAdded < 3 {
+						time.Sleep(time.Duration(iindex) * time.Second)
 						data, err = addTorrentFileinRD2(fmt.Sprintf("magnet:?xt=urn:btih:%s", infoHash))
 						if availableCheck {
 							fmt.Println("Cached")
