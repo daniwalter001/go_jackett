@@ -88,7 +88,6 @@ func addTorrentFileinRD2(magnet string) (rd.AddTorrentResponse, rd.RdError) {
 func getTorrentInfofromRD(id string) (rd.TorrentInfoResponse, rd.RdError) {
 	if len(id) == 0 {
 		return rd.TorrentInfoResponse{}, rd.RdError{}
-
 	}
 
 	api := fmt.Sprintf("https://api.real-debrid.com/rest/1.0/torrents/info/%s", id)
@@ -167,6 +166,8 @@ func unrestrictLinkfromRD(link string) (rd.UnrestrictLinkResponse, rd.RdError) {
 	if res.StatusCode >= 400 {
 		var resErr rd.RdError
 		json.Unmarshal(body, &resErr)
+
+		fmt.Println(PrettyPrint((resErr)))
 		return rd.UnrestrictLinkResponse{}, resErr
 	}
 

@@ -39,8 +39,6 @@ func main() {
 		fmt.Println(status)
 	}
 
-	fmt.Println("test test")
-
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
@@ -291,11 +289,11 @@ func main() {
 
 		nbreAdded := 0
 
-		for _, el := range parsedTorrentFiles {
+		for iindex, el := range parsedTorrentFiles {
 			go func(item types.ItemsParsed) {
 				defer wg.Done()
 				for _, ell := range el.TorrentData {
-					fmt.Println(ell.Name)
+					// fmt.Println(ell.Name)
 					if !isVideo(ell.Name) {
 						continue
 					}
@@ -326,6 +324,8 @@ func main() {
 					availableCheck = len(v_) > 0
 
 					if availableCheck || nbreAdded < 3 {
+						time.Sleep(time.Duration(iindex) * time.Second)
+
 						data, err = addTorrentFileinRD2(fmt.Sprintf("magnet:?xt=urn:btih:%s", infoHash))
 						if availableCheck {
 							fmt.Println("Cached")
@@ -337,9 +337,9 @@ func main() {
 
 					folderId = data.ID
 					selected, err := selectFilefromRD(folderId, "all")
+
 					if folderId != "" && selected {
 						torrentDetails, err_ := getTorrentInfofromRD(folderId)
-						// fmt.Println((PrettyPrint(torrentDetails)))
 						if err.Error != "" {
 							fmt.Println("Error")
 							fmt.Println(err_.Error)

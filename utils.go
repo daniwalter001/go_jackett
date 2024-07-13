@@ -69,7 +69,9 @@ func getImdbFromKitsu(id string) []string {
 	request := fiber.Get(api)
 	status, data, err := request.Bytes()
 	if err != nil {
-		panic(err)
+		// panic(err)
+		fmt.Println(PrettyPrint(err))
+		return make([]string, 0)
 	}
 
 	fmt.Printf("Status code: %d\n", status)
@@ -91,13 +93,6 @@ func getImdbFromKitsu(id string) []string {
 
 	for i := 0; i < len(res.Meta.Videos); i++ {
 		a := res.Meta.Videos[i]
-		// fmt.Println("-------------------------")
-		// fmt.Println(a.ID)
-		// fmt.Println(a.Episode)
-		// fmt.Println(a.Season)
-		// fmt.Println(a.ImdbSeason)
-		// fmt.Println(a.ImdbEpisode)
-		// fmt.Println("-------------------------")
 
 		if a.ID == id {
 			meta = res.Meta.Videos[i]
