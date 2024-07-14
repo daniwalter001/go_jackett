@@ -357,16 +357,31 @@ func main() {
 					if availableCheck || nbreAdded < 3 {
 						time.Sleep(time.Duration(iindex) * time.Second)
 						data, err = addTorrentFileinRD2(fmt.Sprintf("magnet:?xt=urn:btih:%s", infoHash))
+
+						// fmt.Println("----------------------1")
+						// fmt.Println(PrettyPrint(data))
+						// fmt.Println(PrettyPrint(err))
+						// fmt.Println("----------------------2")
+
+						// if len(err.Error) != 0 {
+						// continue
+						// }
+
 						if availableCheck {
 							fmt.Println("Cached")
 						} else {
 							fmt.Println("Added")
 							nbreAdded = nbreAdded + 1
+							continue
 						}
 					}
 
 					folderId = data.ID
 					selected, err := selectFilefromRD(folderId, "all")
+					// fmt.Println("----------------------1")
+					// fmt.Println(PrettyPrint(selected))
+					// fmt.Println(PrettyPrint(err))
+					// fmt.Println("----------------------2")
 					if folderId != "" && selected {
 						torrentDetails, err_ := getTorrentInfofromRD(folderId)
 						//fmt.Println((PrettyPrint(torrentDetails)))
