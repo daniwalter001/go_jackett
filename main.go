@@ -41,6 +41,8 @@ func main() {
 		fmt.Println(status)
 	}
 
+	streamsCache := make(map[string]types.StreamMeta, 0)
+
 	app := fiber.New()
 
 	app.Get("/", func(c *fiber.Ctx) error {
@@ -94,19 +96,26 @@ func main() {
 		id = strings.ReplaceAll(id, "%3A", ":")
 
 		//Reading the cache
-		//Reading the cache
-		streams, err := rdClient.JSONGet(ctx, id, "$").Result()
-		if err == nil && streams != "" {
+		// streams, err := rdClient.JSONGet(ctx, id, "$").Result()
+		// if err == nil && streams != "" {
+		// 	fmt.Printf("Sending that %s shit from cache\n", id)
+		// 	var cachedStreams []types.StreamMeta
+		// 	errJson := json.Unmarshal([]byte(streams), &cachedStreams)
+		// 	if errJson != nil {
+		// 		fmt.Println(errJson)
+		// 		return c.Status(fiber.StatusNotFound).SendString("lol")
+		// 	} else if len(cachedStreams) > 0 {
+		// 		fmt.Printf("Sent from cache %s\n", id)
+		// 		return c.Status(fiber.StatusOK).JSON(cachedStreams[len(cachedStreams)-1])
+		// 	}
+		// }
+
+		//Reading the cache (test)
+
+		streams, exists := streamsCache[id]
+		if exists {
 			fmt.Printf("Sending that %s shit from cache\n", id)
-			var cachedStreams []types.StreamMeta
-			errJson := json.Unmarshal([]byte(streams), &cachedStreams)
-			if errJson != nil {
-				fmt.Println(errJson)
-				return c.Status(fiber.StatusNotFound).SendString("lol")
-			} else if len(cachedStreams) > 0 {
-				fmt.Printf("Sent from cache %s\n", id)
-				return c.Status(fiber.StatusOK).JSON(cachedStreams[len(cachedStreams)-1])
-			}
+			return c.Status(fiber.StatusOK).JSON(streams)
 		}
 
 		type_ := c.Params("type")
@@ -148,6 +157,10 @@ func main() {
 
 		name, year := getMeta(tt, type_)
 
+		if len(name) == 0 {
+			return c.SendStatus(fiber.StatusNotFound)
+		}
+
 		var results []types.ItemsParsed
 
 		wg := sync.WaitGroup{}
@@ -181,7 +194,7 @@ func main() {
 			}()
 			go func() {
 				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s integrale", name), type_)...)
+				results = append(results, fetchTorrent(fmt.Sprintf("%s batch", name), type_)...)
 			}()
 			// go func() {
 			// 	defer wg.Done()
@@ -189,7 +202,7 @@ func main() {
 			// }()
 			go func() {
 				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s complet", name), type_)...)
+				results = append(results, fetchTorrent(fmt.Sprintf("%s complete", name), type_)...)
 			}()
 
 			go func() {
@@ -439,14 +452,18 @@ func main() {
 
 		wg.Wait()
 
+		// if len(ttttt.Streams) > 0 {
+		// 	jsonBytes, errttt := json.Marshal(ttttt)
+		// 	if errttt == nil {
+		// 		_, errrrr := rdClient.JSONSet(ctx, id, "$", jsonBytes).Result()
+		// 		if errrrr == nil {
+		// 			rdClient.Expire(ctx, id, time.Hour*24*7).Result()
+		// 		}
+		// 	}
+		// }
+
 		if len(ttttt.Streams) > 0 {
-			jsonBytes, errttt := json.Marshal(ttttt)
-			if errttt == nil {
-				_, errrrr := rdClient.JSONSet(ctx, id, "$", jsonBytes).Result()
-				if errrrr == nil {
-					rdClient.Expire(ctx, id, time.Hour*24*7).Result()
-				}
-			}
+			streamsCache[id] = ttttt
 		}
 
 		fmt.Println("Sending that shit")
