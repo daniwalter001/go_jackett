@@ -6,6 +6,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"math/rand"
+	"net/http"
 	"os"
 	"strings"
 	"time"
@@ -194,6 +195,40 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	}
 
 	return parsedItems
+}
+
+func isRedirect(item types.ItemsParsed) types.ItemsParsed {
+	url := item.MagnetURI
+
+	client := &http.Client{}
+
+	req, err := http.NewRequest(http.MethodGet, url, nil)
+
+	if err != nil {
+		return item
+	}
+
+	resp, err_ := client.Do(req)
+
+	if err_ != nil {
+		var errr types.HttpClientError
+		json.Unmarshal([]byte(PrettyPrint(err_)), &errr)
+
+		if strings.Contains(errr.URL, "magnet:?xt") {
+			item.MagnetURI = errr.URL
+		}
+		return item
+	}
+
+	if resp.StatusCode >= 300 && resp.StatusCode < 400 {
+		location, _ := resp.Location()
+		if strings.Contains(location.String(), "magnet:?xt") {
+			item.MagnetURI = location.String()
+		}
+	}
+
+	return item
+
 }
 
 func readTorrent(item types.ItemsParsed) types.ItemsParsed {
