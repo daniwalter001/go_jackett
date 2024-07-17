@@ -213,7 +213,6 @@ func isRedirect(item types.ItemsParsed) types.ItemsParsed {
 	if err_ != nil {
 		var errr types.HttpClientError
 		json.Unmarshal([]byte(PrettyPrint(err_)), &errr)
-
 		if strings.Contains(errr.URL, "magnet:?xt") {
 			item.MagnetURI = errr.URL
 		}
@@ -233,6 +232,11 @@ func isRedirect(item types.ItemsParsed) types.ItemsParsed {
 
 func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 	url := item.MagnetURI
+
+	if strings.Contains(url, "magnet:?xt") {
+		return readTorrentFromMagnet(item)
+	}
+
 	c := TorrentClient()
 	defer c.Close()
 

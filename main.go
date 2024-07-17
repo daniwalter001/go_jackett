@@ -269,11 +269,9 @@ func main() {
 			go func(item types.ItemsParsed) {
 				defer wg.Done()
 				r := item
-				if strings.Contains(item.MagnetURI, "magnet:?xt") {
-					r = readTorrentFromMagnet(item)
-				} else {
-					r = readTorrent(item)
-				}
+
+				item = isRedirect(item)
+				r = readTorrent(item)
 
 				if len(r.TorrentData) != 0 {
 					parsedTorrentFiles = append(parsedTorrentFiles, r)
