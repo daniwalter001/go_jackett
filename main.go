@@ -121,7 +121,7 @@ func main() {
 		var results []types.ItemsParsed
 
 		wg := sync.WaitGroup{}
-		l := 4
+		l := 5
 		if type_ == "series" {
 			if abs == "true" {
 				l = l + 2
@@ -130,7 +130,7 @@ func main() {
 				l = l + 2
 			}
 		} else if type_ == "movie" {
-			l = 1
+			l = 2
 		}
 		fmt.Printf("Requests: %d\n", l)
 
@@ -141,21 +141,31 @@ func main() {
 		if type_ == "movie" {
 			go func() {
 				defer wg.Done()
+				results = append(results, fetchTorrent(fmt.Sprintf("%s %s", simplifiedName(name), year), type_)...)
+			}()
+
+			go func() {
+				defer wg.Done()
 				results = append(results, fetchTorrent(fmt.Sprintf("%s %s", name, year), type_)...)
 			}()
 		} else {
 
 			go func() {
 				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s S%02d", name, s), type_)...)
+				results = append(results, fetchTorrent(fmt.Sprintf("%s S%02d", simplifiedName(name), s), type_)...)
 			}()
 			go func() {
 				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s batch", name), type_)...)
+				results = append(results, fetchTorrent(fmt.Sprintf("%s batch", simplifiedName(name)), type_)...)
 			}()
 			go func() {
 				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s complete", name), type_)...)
+				results = append(results, fetchTorrent(fmt.Sprintf("%s complet", simplifiedName(name)), type_)...)
+			}()
+
+			go func() {
+				defer wg.Done()
+				results = append(results, fetchTorrent(fmt.Sprintf("%s S%02dE%02d", simplifiedName(name), s, e), type_)...)
 			}()
 
 			go func() {
@@ -166,23 +176,23 @@ func main() {
 			if s == 1 {
 				go func() {
 					defer wg.Done()
-					results = append(results, fetchTorrent(fmt.Sprintf("%s E%02d", name, e), type_)...)
+					results = append(results, fetchTorrent(fmt.Sprintf("%s E%02d", simplifiedName(name), e), type_)...)
 				}()
 				go func() {
 					defer wg.Done()
-					results = append(results, fetchTorrent(fmt.Sprintf("%s %02d", name, e), type_)...)
+					results = append(results, fetchTorrent(fmt.Sprintf("%s %02d", simplifiedName(name), e), type_)...)
 				}()
 			}
 
 			if abs == "true" {
 				go func() {
 					defer wg.Done()
-					results = append(results, fetchTorrent(fmt.Sprintf("%s E%03d", name, abs_episode), type_)...)
+					results = append(results, fetchTorrent(fmt.Sprintf("%s E%03d", simplifiedName(name), abs_episode), type_)...)
 				}()
 
 				go func() {
 					defer wg.Done()
-					results = append(results, fetchTorrent(fmt.Sprintf("%s %03d", name, abs_episode), type_)...)
+					results = append(results, fetchTorrent(fmt.Sprintf("%s %03d", simplifiedName(name), abs_episode), type_)...)
 				}()
 			}
 		}

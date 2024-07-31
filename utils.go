@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"math/rand"
 	"os"
+	"regexp"
 	"strings"
 	"time"
 
@@ -138,6 +139,7 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	if type_ == "movie" {
 		category = "2000"
 	}
+	fmt.Printf("Query: %s\n", query)
 	query = removeAccents(strings.ReplaceAll(query, " ", "+"))
 
 	override := os.Getenv("OVERRIDE_API_URL")
@@ -285,4 +287,25 @@ func readTorrentFromMagnet(item types.ItemsParsed) types.ItemsParsed {
 		return item
 	}
 
+}
+
+func simplifiedName(name string) string {
+
+	r, _ := regexp.Compile(`\s{2,}`)
+
+	resRegex := r.FindAllString(name, -1)
+
+	for _, word := range resRegex {
+		name = strings.ReplaceAll(name, word, " ")
+	}
+
+	if strings.Contains(name, ":") {
+		name = strings.Split(name, ":")[0]
+	}
+
+	if strings.Contains(name, "-") {
+		name = strings.Split(name, "-")[0]
+	}
+
+	return strings.Trim(name, " ")
 }
