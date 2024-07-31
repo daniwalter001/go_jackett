@@ -121,7 +121,7 @@ func main() {
 		var results []types.ItemsParsed
 
 		wg := sync.WaitGroup{}
-		l := 5
+		l := 4
 		if type_ == "series" {
 			if abs == "true" {
 				l = l + 2
@@ -151,15 +151,11 @@ func main() {
 			}()
 			go func() {
 				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s integrale", name), type_)...)
-			}()
-			go func() {
-				defer wg.Done()
 				results = append(results, fetchTorrent(fmt.Sprintf("%s batch", name), type_)...)
 			}()
 			go func() {
 				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s complet", name), type_)...)
+				results = append(results, fetchTorrent(fmt.Sprintf("%s complete", name), type_)...)
 			}()
 
 			go func() {
