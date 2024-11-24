@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -13,7 +12,6 @@ import (
 	"time"
 
 	"github.com/daniwalter001/jackett_fiber/types"
-	"github.com/daniwalter001/jackett_fiber/types/rd"
 	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
 )
@@ -295,9 +293,7 @@ func main() {
 		wg = sync.WaitGroup{}
 		wg.Add(len(parsedTorrentFiles))
 
-		nbreAdded := 0
-
-		for iindex, el := range parsedTorrentFiles {
+		for _, el := range parsedTorrentFiles {
 			go func(item types.ItemsParsed) {
 				defer wg.Done()
 				for _, ell := range el.TorrentData {
@@ -308,8 +304,6 @@ func main() {
 
 					// ==========================No RD =============================
 					fmt.Printf("Bypassing RD...\n")
-
-					infoHash := ell.InfoHash
 					
 					announceList := append(ell.AnnounceList, fmt.Sprintf("dht:%s", ell.InfoHash))
 					ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.TorrentName, ell.Name, getQuality(ell.Name), getSize(int(ell.Length))), Name: fmt.Sprintf("%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, InfoHash: ell.InfoHash, Sources: announceList, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, FileIdx: parsedSuitableTorrentFilesIndex[ell.Name] - 1})
