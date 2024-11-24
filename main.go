@@ -306,88 +306,14 @@ func main() {
 						continue
 					}
 
-					// ========================== RD =============================
-					fmt.Printf("Trynna some RD...\n")
+					// ==========================No RD =============================
+					fmt.Printf("Bypassing RD...\n")
 
 					infoHash := ell.InfoHash
-					// infoHash := ell.Torrent().InfoHash().String()
-					// magnet := fmt.Sprint(ell.Torrent().Metainfo().Magnet(nil, ell.Torrent().Info()))
-					var folderId string
-					var details []rd.UnrestrictLinkResponse
-					var data rd.AddTorrentResponse
-
-					available, err := checkTorrentFileinRD(infoHash)
-
-					if err.Error != "" {
-						continue
-					}
-
-					v, availableCheck := available[infoHash]
-
-					if !availableCheck {
-						continue
-					}
-
-					v_ := v["rd"]
-					availableCheck = len(v_) > 0
-
-					if availableCheck || nbreAdded < 3 {
-						time.Sleep(time.Duration(iindex) * time.Second)
-						data, err = addTorrentFileinRD2(fmt.Sprintf("magnet:?xt=urn:btih:%s", infoHash))
-						if availableCheck {
-							fmt.Println("Cached")
-						} else {
-							fmt.Println("Added")
-							nbreAdded = nbreAdded + 1
-						}
-					}
-
-					folderId = data.ID
-					selected, err := selectFilefromRD(folderId, "all")
-					if folderId != "" && selected {
-						torrentDetails, err_ := getTorrentInfofromRD(folderId)
-						//fmt.Println((PrettyPrint(torrentDetails)))
-						if err.Error != "" {
-							fmt.Println("Error")
-							fmt.Println(err_.Error)
-						}
-						var files []rd.Files
-						if len(torrentDetails.Files) > 0 {
-							files = filter[rd.Files](torrentDetails.Files, func(f rd.Files) bool {
-								return f.Selected == 1
-							})
-							links := torrentDetails.Links
-							selectedIndex := 0
-
-							if len(files) > 1 {
-								selectedIndex = slices.IndexFunc[[]rd.Files](files, func(t rd.Files) bool {
-									return strings.Contains(strings.ToLower(t.Path), strings.ToLower(ell.Name))
-								})
-							}
-							if selectedIndex == -1 || len(links) <= selectedIndex {
-								selectedIndex = 0
-							}
-							if len(links) > 0 {
-								unrestrictLink, errun := unrestrictLinkfromRD(links[selectedIndex])
-								details = append(details, unrestrictLink)
-								// fmt.Println(PrettyPrint(errun.Error))
-								// fmt.Println(PrettyPrint(details[len(details)-1]))
-								if errun.Error != "" {
-									continue
-								}
-							}
-						}
-
-					}
-
-					if len(details) > 0 {
-						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.TorrentName, ell.Name, getQuality(ell.Name), getSize(ell.Length)), Name: fmt.Sprintf("RD.%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, URL: details[0].Download})
-
-						// ========================== END RD =============================
-					} else if os.Getenv("PUBLIC") == "1" {
-						announceList := append(ell.AnnounceList, fmt.Sprintf("dht:%s", ell.InfoHash))
-						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.TorrentName, ell.Name, getQuality(ell.Name), getSize(int(ell.Length))), Name: fmt.Sprintf("%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, InfoHash: ell.InfoHash, Sources: announceList, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, FileIdx: parsedSuitableTorrentFilesIndex[ell.Name] - 1})
-					}
+					
+					announceList := append(ell.AnnounceList, fmt.Sprintf("dht:%s", ell.InfoHash))
+					ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.TorrentName, ell.Name, getQuality(ell.Name), getSize(int(ell.Length))), Name: fmt.Sprintf("%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, InfoHash: ell.InfoHash, Sources: announceList, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, FileIdx: parsedSuitableTorrentFilesIndex[ell.Name] - 1})
+					
 
 				}
 			}(el)
