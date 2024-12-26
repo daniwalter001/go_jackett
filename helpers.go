@@ -4,9 +4,12 @@ import (
 	_ "embed"
 	"encoding/json"
 	"fmt"
+	"net/http"
+	"net/url"
 	"os"
 	"slices"
 	"strings"
+	"time"
 	"unicode"
 
 	"github.com/daniwalter001/jackett_fiber/types"
@@ -186,10 +189,12 @@ func getServers() []types.Server {
 	var servers []types.Server
 
 	for _, line := range serversArr {
-		servers = append(servers, types.Server{
-			Host:   strings.Split(line, "|")[0],
-			ApiKey: strings.Split(line, "|")[1],
-		})
+		if len(line) != 0 {
+			servers = append(servers, types.Server{
+				Host:   strings.Split(line, "|")[0],
+				ApiKey: strings.Split(line, "|")[1],
+			})
+		}
 	}
 
 	return servers
@@ -214,4 +219,42 @@ func removeAccents(s string) string {
 		panic(e)
 	}
 	return output
+}
+
+func isRedirect(urlStr string) string {
+
+	if len(urlStr) == 0 {
+		return ""
+	}
+
+	if strings.Contains(urlStr, "magnet:?xt") {
+		return urlStr
+	}
+
+	_, err := url.ParseRequestURI(urlStr)
+	if err != nil {
+		return ""
+	}
+
+	client := &http.Client{
+		Timeout: 15 * time.Second,
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			return http.ErrUseLastResponse
+		},
+	}
+	resp, err := client.Get(urlStr)
+
+	if err != nil {
+		fmt.Printf("Error: %s\n", err.Error())
+		return ""
+	}
+	defer resp.Body.Close()
+
+	fmt.Printf("Status: %s\n", resp.Status)
+
+	if resp.StatusCode > 399 || resp.StatusCode < 299 {
+		return ""
+	}
+
+	return resp.Header.Get("Location")
 }

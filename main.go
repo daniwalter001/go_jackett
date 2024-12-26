@@ -49,9 +49,7 @@ func main() {
 	})
 
 	app.Get("/manifest.json", func(c *fiber.Ctx) error {
-		a := types.StreamManifest{ID: "strem.go.nyaa", Description: "Random Golang version on stremio Addon", Name: "GoDon Nyaa 2", Resources: []string{"stream"}, Version: "1.0.1", Types: []string{"movie", "series", "anime"}, Logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/Golang.png", IdPrefixes: []string{"tt", "kitsu"}, Catalogs: []string{}}
-
-		u, err := json.Marshal(a)
+		jsonManifest, err := json.Marshal(manifest)
 		if err != nil {
 			return c.SendStatus(fiber.StatusOK)
 		}
@@ -60,7 +58,7 @@ func main() {
 		c.Set("Access-Control-Allow-Headers", "*")
 		c.Set("Content-Type", "application/json")
 
-		return c.Status(fiber.StatusOK).SendString(string(u))
+		return c.Status(fiber.StatusOK).SendString(string(jsonManifest))
 	})
 
 	app.Get("/stream/:type/:id.json", func(c *fiber.Ctx) error {
@@ -79,19 +77,19 @@ func main() {
 		id = strings.ReplaceAll(id, "%3A", ":")
 
 		//Reading the cache
-		streams, err := rdClient.JSONGet(ctx, id, "$").Result()
-		if err == nil && streams != "" {
-			fmt.Printf("Sending that %s shit from cache\n", id)
-			var cachedStreams []types.StreamMeta
-			errJson := json.Unmarshal([]byte(streams), &cachedStreams)
-			if errJson != nil {
-				fmt.Println(errJson)
-				return c.Status(fiber.StatusNotFound).SendString("lol")
-			} else if len(cachedStreams) > 0 {
-				fmt.Printf("Sent %s from cache \n", id)
-				return c.Status(fiber.StatusOK).JSON(cachedStreams[len(cachedStreams)-1])
-			}
-		}
+		// streams, err := rdClient.JSONGet(ctx, id, "$").Result()
+		// if err == nil && streams != "" {
+		// 	fmt.Printf("Sending that %s shit from cache\n", id)
+		// 	var cachedStreams []types.StreamMeta
+		// 	errJson := json.Unmarshal([]byte(streams), &cachedStreams)
+		// 	if errJson != nil {
+		// 		fmt.Println(errJson)
+		// 		return c.Status(fiber.StatusNotFound).SendString("lol")
+		// 	} else if len(cachedStreams) > 0 {
+		// 		fmt.Printf("Sent %s from cache \n", id)
+		// 		return c.Status(fiber.StatusOK).JSON(cachedStreams[len(cachedStreams)-1])
+		// 	}
+		// }
 
 		type_ := c.Params("type")
 
@@ -118,19 +116,24 @@ func main() {
 
 		name, year := getMeta(tt, type_)
 
+		if len(name) == 0 {
+			fmt.Println("No MetaData")
+			return c.Status(fiber.StatusNotFound).SendString("No Metadata")
+		}
+
 		var results []types.ItemsParsed
 
 		wg := sync.WaitGroup{}
-		l := 5
+		l := 2
 		if type_ == "series" {
 			if abs == "true" {
 				l = l + 2
 			}
 			if s == 1 {
-				l = l + 2
+				l = l + 1
 			}
 		} else if type_ == "movie" {
-			l = 2
+			l = 1
 		}
 		fmt.Printf("Requests: %d\n", l)
 
@@ -144,23 +147,11 @@ func main() {
 				results = append(results, fetchTorrent(fmt.Sprintf("%s %s", simplifiedName(name), year), type_)...)
 			}()
 
-			go func() {
-				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s %s", name, year), type_)...)
-			}()
 		} else {
 
 			go func() {
 				defer wg.Done()
 				results = append(results, fetchTorrent(fmt.Sprintf("%s S%02d", simplifiedName(name), s), type_)...)
-			}()
-			go func() {
-				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s batch", simplifiedName(name)), type_)...)
-			}()
-			go func() {
-				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s complet", simplifiedName(name)), type_)...)
 			}()
 
 			go func() {
@@ -168,19 +159,10 @@ func main() {
 				results = append(results, fetchTorrent(fmt.Sprintf("%s S%02dE%02d", simplifiedName(name), s, e), type_)...)
 			}()
 
-			go func() {
-				defer wg.Done()
-				results = append(results, fetchTorrent(fmt.Sprintf("%s S%02dE%02d", name, s, e), type_)...)
-			}()
-
 			if s == 1 {
 				go func() {
 					defer wg.Done()
 					results = append(results, fetchTorrent(fmt.Sprintf("%s E%02d", simplifiedName(name), e), type_)...)
-				}()
-				go func() {
-					defer wg.Done()
-					results = append(results, fetchTorrent(fmt.Sprintf("%s %02d", simplifiedName(name), e), type_)...)
 				}()
 			}
 
@@ -231,10 +213,20 @@ func main() {
 		for i := 0; i < len(results); i++ {
 			go func(item types.ItemsParsed) {
 				defer wg.Done()
+				redirectedUrl := isRedirect(item.Link)
+				if len(redirectedUrl) != 0 {
+					item.MagnetURI = redirectedUrl
+				}
+
 				r := item
+				fmt.Println("-----------------------------------------debut")
+				fmt.Printf("Contains magnet:?xt: %t\n", strings.Contains(item.MagnetURI, "magnet:?xt"))
+				fmt.Println("-----------------------------------------fin")
+
 				if strings.Contains(item.MagnetURI, "magnet:?xt") {
 					r = readTorrentFromMagnet(item)
 				} else {
+					fmt.Print("Reading torrent from link\n")
 					r = readTorrent(item)
 				}
 
@@ -315,38 +307,38 @@ func main() {
 					var folderId string
 					var details []rd.UnrestrictLinkResponse
 					var data rd.AddTorrentResponse
+					var err rd.RdError
 
-					available, err := checkTorrentFileinRD(infoHash)
+					availableCheck := true
 
-					if err.Error != "" {
-						continue
-					}
-
-					v, availableCheck := available[infoHash]
-
-					if !availableCheck {
-						continue
-					}
-
-					v_ := v["rd"]
-					availableCheck = len(v_) > 0
-
-					if availableCheck || nbreAdded < 3 {
+					if availableCheck {
 						time.Sleep(time.Duration(iindex) * time.Second)
 						data, err = addTorrentFileinRD2(fmt.Sprintf("magnet:?xt=urn:btih:%s", infoHash))
-						if availableCheck {
-							fmt.Println("Cached")
-						} else {
-							fmt.Println("Added")
-							nbreAdded = nbreAdded + 1
+						if len(err.Error) != 0 {
+							fmt.Println("Error")
+							fmt.Println(err.Error)
 						}
+						fmt.Println("Added")
+						nbreAdded = nbreAdded + 1
 					}
 
 					folderId = data.ID
+					fmt.Printf("FolderId: %s\n", folderId)
 					selected, err := selectFilefromRD(folderId, "all")
+					fmt.Printf("selected: %t\n", selected)
 					if folderId != "" && selected {
 						torrentDetails, err_ := getTorrentInfofromRD(folderId)
 						//fmt.Println((PrettyPrint(torrentDetails)))
+
+						if torrentDetails.Status != "downloaded" {
+							fmt.Printf("%s not ready\n", folderId)
+							fmt.Println("Deleteting")
+							deleted, _ := deleteFilefromRD(folderId)
+							if deleted {
+								fmt.Println("DELETED")
+							}
+						}
+
 						if err.Error != "" {
 							fmt.Println("Error")
 							fmt.Println(err_.Error)
@@ -380,13 +372,15 @@ func main() {
 
 					}
 
+					// [⚡RD⚡] ${tor["Tracker"]} ${getQuality(title)}
+
 					if len(details) > 0 {
-						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.TorrentName, ell.Name, getQuality(ell.Name), getSize(ell.Length)), Name: fmt.Sprintf("RD.%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, URL: details[0].Download})
+						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | S:%s P:%s", ell.TorrentName, ell.Name, getSize(int(ell.Length)), item.Seeders, item.Peers), Name: fmt.Sprintf("[⚡RD⚡] %s %s", item.Tracker, getQuality(ell.Name)), Type: type_, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, URL: details[0].Download})
 
 						// ========================== END RD =============================
 					} else if os.Getenv("PUBLIC") == "1" {
 						announceList := append(ell.AnnounceList, fmt.Sprintf("dht:%s", ell.InfoHash))
-						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | %s", ell.TorrentName, ell.Name, getQuality(ell.Name), getSize(int(ell.Length))), Name: fmt.Sprintf("%s\n S:%s, P:%s", item.Tracker, item.Seeders, item.Peers), Type: type_, InfoHash: ell.InfoHash, Sources: announceList, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, FileIdx: parsedSuitableTorrentFilesIndex[ell.Name] - 1})
+						ttttt.Streams = append(ttttt.Streams, types.TorrentStreams{Title: fmt.Sprintf("%s\n%s\n%s | S:%s P:%s", ell.TorrentName, ell.Name, getSize(int(ell.Length)), item.Seeders, item.Peers), Name: fmt.Sprintf("%s %s", item.Tracker, getQuality(ell.Name)), Type: type_, InfoHash: ell.InfoHash, Sources: announceList, BehaviorHints: types.BehaviorHints{BingeGroup: fmt.Sprintf("Jackett|%s", ell.InfoHash), NotWebReady: true}, FileIdx: parsedSuitableTorrentFilesIndex[ell.Name] - 1})
 					}
 
 				}
@@ -395,15 +389,15 @@ func main() {
 
 		wg.Wait()
 
-		if len(ttttt.Streams) > 0 {
-			jsonBytes, errttt := json.Marshal(ttttt)
-			if errttt == nil {
-				_, errrrr := rdClient.JSONSet(ctx, id, "$", jsonBytes).Result()
-				if errrrr == nil {
-					rdClient.Expire(ctx, id, time.Hour*24*7).Result()
-				}
-			}
-		}
+		// if len(ttttt.Streams) > 0 {
+		// 	jsonBytes, errttt := json.Marshal(ttttt)
+		// 	if errttt == nil {
+		// 		_, errrrr := rdClient.JSONSet(ctx, id, "$", jsonBytes).Result()
+		// 		if errrrr == nil {
+		// 			rdClient.Expire(ctx, id, time.Hour*24*3).Result()
+		// 		}
+		// 	}
+		// }
 
 		fmt.Println("Sending that shit")
 		return c.Status(fiber.StatusOK).JSON(ttttt)

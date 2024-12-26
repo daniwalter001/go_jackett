@@ -22,15 +22,16 @@ func getMeta(id string, type_ string) (string, string) {
 	enc.SetEscapeHTML(false)
 
 	splitedId := strings.Split(id, ":")
-	// api := "https://v3-cinemeta.strem.io/meta/" + type_ + "/" + splitedId[0] + ".json"
-	api := "https://cinemeta-live.strem.io/meta/" + type_ + "/" + splitedId[0] + ".json"
+	api := "https://v3-cinemeta.strem.io/meta/" + type_ + "/" + splitedId[0] + ".json"
+	// api := "https://cinemeta-live.strem.io/meta/" + type_ + "/" + splitedId[0] + ".json"
 	fmt.Println(api)
 	request := fiber.Get(api)
 
 	status, data, err := request.Bytes()
 
 	if err != nil {
-		panic(err)
+		// panic(err)
+		return "", ""
 	}
 
 	fmt.Printf("Status code: %d\n", status)
@@ -142,11 +143,15 @@ func fetchTorrent(query string, type_ string) []types.ItemsParsed {
 	fmt.Printf("Query: %s\n", query)
 	query = removeAccents(strings.ReplaceAll(query, " ", "+"))
 
-	override := os.Getenv("OVERRIDE_API_URL")
-	api := fmt.Sprintf("%s/api/v2.0/indexers/yggtorrent/results/torznab/api?cache=false&cat=%s&apikey=%s&q=%s", host, category, apiKey, query)
+	override_url := os.Getenv("OVERRIDE_API_URL")
+	api := fmt.Sprintf("%s/api/v2.0/indexers/torrentdownload/results/torznab/api?cache=false&cat=%s&apikey=%s&q=%s", host, category, apiKey, query)
 
-	if override != "" {
-		api = fmt.Sprintf("%s%s&apikey=%s&q=%s", host, override, apiKey, query)
+	// http://216.70.20.53:9117/api/v2.0/indexers/torlock/results/torznab/api?apikey=gnzi9k7a6q7fif1rqsxse2by2dhb3lpv&t=search&cat=&q=
+
+	// &Tracker%5B%5D=kickasstorrents-ws&Tracker%5B%5D=torrentdownload
+
+	if override_url != "" {
+		api = fmt.Sprintf("%s%s&apikey=%s&q=%s", host, override_url, apiKey, query)
 	}
 
 	fmt.Println(api)
@@ -203,6 +208,8 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 
 	status, data, err := request.Bytes()
 
+	fmt.Printf("Status code: %d\n", status)
+
 	if status >= 400 {
 		return item
 	}
@@ -222,8 +229,11 @@ func readTorrent(item types.ItemsParsed) types.ItemsParsed {
 	fileReader := bytes.NewReader(data)
 	torrentFile, _ := gotorrentparser.Parse(fileReader)
 
+	if torrentFile == nil {
+		return item
+	}
+
 	for _, file := range torrentFile.Files {
-		// fmt.Println(file.Path[len(file.Path)-1])
 
 		files = append(files, types.TorrentFile{
 			Name:         file.Path[len(file.Path)-1],
@@ -299,13 +309,12 @@ func simplifiedName(name string) string {
 		name = strings.ReplaceAll(name, word, " ")
 	}
 
-	if strings.Contains(name, ":") {
-		name = strings.Split(name, ":")[0]
-	}
+	name = strings.ReplaceAll(name, "-", " ")
+	name = strings.ReplaceAll(name, ":", " ")
 
-	if strings.Contains(name, "-") {
-		name = strings.Split(name, "-")[0]
-	}
+	// if strings.Contains(name, ":") {
+	// 	name = strings.Split(name, ":")[0]
+	// }
 
 	return strings.Trim(name, " ")
 }

@@ -14,8 +14,7 @@ import (
 )
 
 var keys = []string{
-	"TUCIGWCX5VJCPB5YPAD64NB25TZFFGAWGDVHELHZDLNUJEGX45BA",
-	"T5Y37CBYWLSOR7DUGM4TWHCEI5FDJ63H2JIBMRGTZHOURSDWI3ZQ"}
+	"M2L6X36DTCUS7PXCFKR465KBO52OLHKABLD7QANPFEYMSVW7OPIQ"}
 
 var rdApikey = keys[rand.Intn(len(keys))]
 
@@ -51,6 +50,7 @@ func checkTorrentFileinRD(hash string) (rd.AvailabilityResponse, rd.RdError) {
 }
 
 func addTorrentFileinRD2(magnet string) (rd.AddTorrentResponse, rd.RdError) {
+	fmt.Println("addTorrentFileinRD2")
 	if len(magnet) == 0 {
 		return rd.AddTorrentResponse{}, rd.RdError{Error: "magnet not defined"}
 	}
@@ -130,6 +130,37 @@ func selectFilefromRD(id string, files string) (bool, rd.RdError) {
 	res, _ := http.DefaultClient.Do(req)
 
 	body, _ := io.ReadAll(res.Body)
+
+	if res.StatusCode >= 400 {
+		var resErr rd.RdError
+		json.Unmarshal(body, &resErr)
+		return false, resErr
+	}
+	defer res.Body.Close()
+	return true, rd.RdError{}
+
+}
+
+func deleteFilefromRD(id string) (bool, rd.RdError) {
+	if len(id) == 0 {
+		return false, rd.RdError{Error: "id not defined"}
+	}
+
+	api := fmt.Sprintf("https://api.real-debrid.com/rest/1.0/torrents/delete/%s", id)
+
+	payload := strings.NewReader("")
+
+	req, _ := http.NewRequest("DELETE", api, payload)
+
+	req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+	req.Header.Add("User-Agent", "insomnia/8.6.1")
+	req.Header.Add("Authorization", bearer())
+
+	res, _ := http.DefaultClient.Do(req)
+
+	body, _ := io.ReadAll(res.Body)
+
+	fmt.Printf("Status code %d\n", res.StatusCode)
 
 	if res.StatusCode >= 400 {
 		var resErr rd.RdError
