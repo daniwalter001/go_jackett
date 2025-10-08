@@ -29,13 +29,6 @@ func main() {
 	fmt.Printf("Creating... %t\n", createIfNotExist("./temp"))
 	fmt.Printf("Creating... %t\n", createIfNotExist("./persistence"))
 
-	// ex, err := os.Executable()
-	// if err != nil {
-	// 	panic(err)
-	// }
-	// exPath := filepath.Dir(ex)
-	// fmt.Printf("Current: %s\n", exPath)
-
 	//read and parse cache file content
 	mapCache := make(map[string]types.StreamMeta)
 
@@ -43,14 +36,6 @@ func main() {
 	if len(cacheFile) > 0 {
 		json.Unmarshal(cacheFile, &mapCache)
 	}
-
-	// fmt.Println(PrettyPrint(mapCache))
-
-	// listd, _ := os.ReadDir(".")
-
-	// for _, v := range listd {
-	// 	fmt.Println(v.Name())
-	// }
 
 	app := fiber.New()
 
@@ -117,15 +102,6 @@ func main() {
 				abs = tmp[5]
 			}
 		}
-
-		// fmt.Println("----------------------------")
-		// fmt.Println(tt)
-		// fmt.Println(strconv.Itoa(s))
-		// fmt.Println(strconv.Itoa(e))
-		// fmt.Println(abs)
-		// fmt.Println(strconv.Itoa(abs_season))
-		// fmt.Println(strconv.Itoa(abs_episode))
-		// fmt.Println("----------------------------")
 
 		name, year := getMeta(tt, type_)
 
@@ -222,10 +198,6 @@ func main() {
 			results = results[:maxRes]
 		}
 
-		// for index, el := range results {
-		// 	fmt.Printf("%d. %s => %s\n", index, el.MagnetURI, el.Seeders)
-		// }
-
 		fmt.Printf("Retenus:%d\n", len(results))
 
 		var parsedTorrentFiles []types.ItemsParsed
@@ -251,7 +223,7 @@ func main() {
 		wg.Wait()
 
 		var parsedSuitableTorrentFiles []types.TorrentFile
-		// var parsedSuitableTorrentFilesIndex = make([]int, len(parsedTorrentFiles))
+
 		var parsedSuitableTorrentFilesIndex = make(map[string]int, 0)
 
 		for index, el := range parsedTorrentFiles {
@@ -315,8 +287,7 @@ func main() {
 					fmt.Printf("Trynna some RD...\n")
 
 					infoHash := ell.InfoHash
-					// infoHash := ell.Torrent().InfoHash().String()
-					// magnet := fmt.Sprint(ell.Torrent().Metainfo().Magnet(nil, ell.Torrent().Info()))
+
 					var folderId string
 					var details []rd.UnrestrictLinkResponse
 					var data rd.AddTorrentResponse
@@ -350,7 +321,7 @@ func main() {
 					selected, err := selectFilefromRD(folderId, "all")
 					if folderId != "" && selected {
 						torrentDetails, err_ := getTorrentInfofromRD(folderId)
-						//fmt.Println((PrettyPrint(torrentDetails)))
+						
 						if err.Error != "" {
 							fmt.Println("Error")
 							fmt.Println(err_.Error)
@@ -374,8 +345,7 @@ func main() {
 							if len(links) > 0 {
 								unrestrictLink, errun := unrestrictLinkfromRD(links[selectedIndex])
 								details = append(details, unrestrictLink)
-								// fmt.Println(PrettyPrint(errun.Error))
-								// fmt.Println(PrettyPrint(details[len(details)-1]))
+
 								if errun.Error != "" {
 									continue
 								}
